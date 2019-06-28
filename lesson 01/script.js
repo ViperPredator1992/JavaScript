@@ -6,4 +6,5 @@ let money,
     period;
 
 alert( 'Hello, JavaScript again!' );
+
 console.log(' JavaScript 8.0 ;) ');
