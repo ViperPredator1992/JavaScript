@@ -1,4 +1,4 @@
-let money = 15525,
+let money = 155255,
     income = 'фриланс',
     addExpenses = 'прогулка, комунальные услуги, уроки JS, уроки OpenCart',
     deposit = true,
@@ -12,4 +12,4 @@ console.log(addExpenses.split(', '));
 console.log(typeof deposit);
 console.log(mission);
 console.log(period);
-console.log(budgetDay);
+console.log(budgetDay % 2);
