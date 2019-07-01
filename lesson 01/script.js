@@ -5,6 +5,5 @@ let money,
     mission,
     period;
 
-alert( 'Hello, JavaScript again!' );
-
+alert( 'Hello, JavaScript again!' );    
 console.log(' JavaScript 8.0 ;) ');
