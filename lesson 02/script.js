@@ -13,4 +13,4 @@ console.log(addExpenses.split(', '));
 console.log(mission);
 console.log(period);
 console.log(budgetDay);
-console.log(budgetDay = money % 30);
+console.log(money % 30);
