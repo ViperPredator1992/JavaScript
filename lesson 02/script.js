@@ -7,9 +7,10 @@ let money = 155255,
     budgetDay = money / 30;
 console.log(typeof money);
 console.log(typeof income);
+console.log(typeof deposit);
 console.log(income.length);
 console.log(addExpenses.split(', '));
-console.log(typeof deposit);
 console.log(mission);
 console.log(period);
-console.log(budgetDay % 2);
+console.log(budgetDay);
+console.log(budgetDay % 30);
