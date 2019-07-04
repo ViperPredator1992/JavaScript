@@ -1,18 +1,7 @@
 'use strict';
 
-let money = 155255,
-    income = 'фриланс',
-    addExpenses = 'прогулка, комунальные услуги, уроки JS, уроки OpenCart',
-    deposit = true,
-    mission = 90000000,
-    period = 10,
-    budgetDay = money / 30;
-console.log(typeof money);
-console.log(typeof income);
-console.log(typeof deposit);
-console.log(income.length);
-console.log(addExpenses.split(', '));
-console.log(mission);
-console.log(period);
-console.log(budgetDay);
-console.log(money % 30);
+let money = prompt('Ваш месячный доход?', ''),
+    addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', '');
+console.log(money);
+console.log(addExpenses);
+
