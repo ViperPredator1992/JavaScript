@@ -1,12 +1,12 @@
 'use strict';
 
-let money = prompt('Ваш месячный доход?', ''),
+let money = +prompt('Ваш месячный доход?', ''),
     // addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', ''),
     // deposit = confirm('Есть ли у вас депозит в банке?'),
     requiredMonthlyExpenses1 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ''),
-    howMuchCost1 = prompt('Во сколько это обойдется?', ''),
+    howMuchCost1 = +prompt('Во сколько это обойдется?', ''),
     requiredMonthlyExpenses2 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ''),
-    howMuchCost2 = prompt('Во сколько это обойдется?', ''),
+    howMuchCost2 = +prompt('Во сколько это обойдется?', ''),
     budgetMonth = money - howMuchCost1 - howMuchCost2,
     mission = 65400,
     target = mission / budgetMonth,
