@@ -8,8 +8,9 @@ let money = prompt('Ваш месячный доход?', ''),
     howMuchCost1 = prompt('Во сколько это обойдется?', ''),
     howMuchCost2 = prompt('Во сколько это обойдется?', ''),
     budgetMonth = money - howMuchCost1 - howMuchCost2,
-    mission;
-    
+    mission = 100,
+    target = mission / budgetMonth,
+    budgetDay = money / budgetMonth;
 
 console.log(money);
 // console.log(addExpenses.split(', '));
@@ -22,4 +23,6 @@ console.log(money);
 // console.log(howMuchCost1);
 // console.log(howMuchCost2);
 console.log(budgetMonth);
-console.log(mission);
+console.log(Math.ceil(target));
+console.log(budgetDay);
+console.log(Math.floor(budgetDay));
