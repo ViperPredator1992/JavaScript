@@ -3,12 +3,12 @@
 let money = prompt('Ваш месячный доход?', ''),
     //addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', ''),
     //deposit = confirm('Есть ли у вас депозит в банке?'),
-    requiredMonthlyExpenses1 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ''),
-    requiredMonthlyExpenses2 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ''),
-    //howMuchCost1 = prompt('Во сколько это обойдется?', ''),
-    //howMuchCost2 = prompt('Во сколько это обойдется?', ''),
-    budgetMonth = money - requiredMonthlyExpenses1;
-    budgetMonth = money - requiredMonthlyExpenses2;
+    // requiredMonthlyExpenses1 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ''),
+    // requiredMonthlyExpenses2 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ''),
+    howMuchCost1 = prompt('Во сколько это обойдется?', ''),
+    howMuchCost2 = prompt('Во сколько это обойдется?', ''),
+    budgetMonth = money - howMuchCost1 - howMuchCost2,
+    mission;
     
 
 console.log(money);
@@ -22,4 +22,4 @@ console.log(money);
 // console.log(howMuchCost1);
 // console.log(howMuchCost2);
 console.log(budgetMonth);
-
+console.log(mission);
