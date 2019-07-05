@@ -26,13 +26,15 @@ let lang = prompt('Введите день недели на русском ил
             break;
     }
 
-
-    //var lang = 'ru';
     let languages = {
         'ru': ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Вокресенье'],
-        'en': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        'en': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     };
-    console.log(languages);
+    if (lang == 'ru') {
+        console.log(languages.ru);
+    } else {
+        console.log(languages.en);
+    }
     
     
 
