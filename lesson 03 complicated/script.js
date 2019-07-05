@@ -22,9 +22,21 @@ let lang = prompt('Введите день недели на русском ил
     enDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
     if (lang == 'ru') {
-        console.log(lang);
+        console.log(ruDay);
     } else {
-        console.log(lang);
+        console.log(enDay);
+    }
+
+    switch (lang) {
+        case 'ru':
+            ruDay = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Вокресенье'];
+            console.log(ruDay);
+            break;
+        case 'en':
+            enDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            console.log(enDay);
+            break;
+
     }
 
     
