@@ -17,15 +17,17 @@
 
 //console.log(lang.split(', '));
 
-let lang = prompt('Введите день недели на русском или английском языке', '');
+let lang = prompt('Введите день недели на русском или английском языке', ''),
+    ruDay = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Вокресенье'],
+    enDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-    if (lang = ruDay) {
-        let ruDay = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Вокресенье'];
+    if (lang == 'ru') {
+        console.log(lang);
     } else {
-        let enDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        console.log(lang);
     }
 
-    console.log(lang);
+    
     
 
 //Задача №2
