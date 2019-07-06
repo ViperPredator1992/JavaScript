@@ -45,10 +45,10 @@ function getExpensesMonth() {
 let getAccumulatedMonth = function () {
     return money - getExpensesMonth();
 };
-let accumulatedMonth = getExpensesMonth();
+let accumulatedMonth = getAccumulatedMonth();
 
 function getTargetMonth() {
-    let target = money / getExpensesMonth();
+    let target = money / accumulatedMonth;
     return Math.floor(target);
 }
 getTargetMonth();
