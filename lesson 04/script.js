@@ -44,9 +44,9 @@ function getExpensesMonth() {
 console.log('Сумма всех расходов за месяц:', getExpensesMonth());
 
 let getAccumulatedMonth = function () {
-    let accumulatedMonth = money - howMuchCost1 - howMuchCost2;
-    return accumulatedMonth;
+    return money - getExpensesMonth();
 };
+let accumulatedMonth = getExpensesMonth();
 console.log('Накопления за месяц:', getAccumulatedMonth());
 
 function getTargetMonth() {
