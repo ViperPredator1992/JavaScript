@@ -5,36 +5,36 @@
 // Написать условия при котором в зависимости от значения lang будут выводится дни недели на русском или английском языке.
 // Решите задачу через if, switch, через многомерный массив без ифов и switch.
 
-// let lang = prompt('Введите день недели на русском или английском языке', ''),
-//     ruDay = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Вокресенье'],
-//     enDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+let lang = prompt('Введите день недели на русском или английском языке', ''),
+    ruDay = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Вокресенье'],
+    enDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-//     if (lang == 'ru') {
-//         console.log(ruDay);
-//     } else {
-//         console.log(enDay);
-//     }
+    if (lang == 'ru') {
+        console.log(ruDay);
+    } else {
+        console.log(enDay);
+    }
 
-//     switch (lang) {
-//         case 'ru':
-//             ruDay = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Вокресенье'];
-//             console.log(ruDay);
-//             break;
-//         case 'en':
-//             enDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-//             console.log(enDay);
-//             break;
-//     }
+    switch (lang) {
+        case 'ru':
+            ruDay = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Вокресенье'];
+            console.log(ruDay);
+            break;
+        case 'en':
+            enDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            console.log(enDay);
+            break;
+    }
 
-//     let languages = {
-//         'ru': ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Вокресенье'],
-//         'en': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-//     };
-//     if (lang == 'ru') {
-//         console.log(languages.ru);
-//     } else {
-//         console.log(languages.en);
-//     }
+    let languages = {
+        'ru': ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Вокресенье'],
+        'en': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    };
+    if (lang == 'ru') {
+        console.log(languages.ru);
+    } else {
+        console.log(languages.en);
+    }
     
 
 //Задача №2
@@ -43,15 +43,8 @@
 // Решить задачу с помощью нескольких тернарных операторов, без использования if или switch
 
 let namePerson = prompt('Введите имя', ''),
-    result = namePerson == 'Артем' ? 'директор' : 'Максим' ? 'преподаватель' : namePerson ? 'студент' : 'студент';
+    result = (namePerson == 'Артем') ? 'директор' : 
+            (namePerson == 'Максим') ? 'преподаватель' :
+            'студент';
+
 console.log(namePerson, result);
-
-
-// var age = prompt('возраст?', 18);
-
-// var message = (age < 3) ? 'Здравствуй, малыш!' :
-//     (age < 18) ? 'Привет!' :
-//     (age < 100) ? 'Здравствуйте!' :
-//     'Какой необычный возраст!';
-
-// alert(message);
