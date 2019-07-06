@@ -8,19 +8,35 @@ let money = +prompt('Ваш месячный доход?', ''),
     requiredMonthlyExpenses2 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ''),
     howMuchCost2 = +prompt('Во сколько это обойдется?', ''),
     income = 'Фриланс',
-    budgetMonth = money - howMuchCost1 - howMuchCost2,
-    mission = 65400,
-    budgetDay = budgetMonth / 30;
+    period = 10,
+    mission = 65400;
 
+let showTypeof = function (item) {
+    console.log(item, typeof item);
+};
+showTypeof(money);
+showTypeof(income);
+showTypeof(deposit);
+
+let budgetDay = getbudgetMonth() / 30;
+function getStatusIncome() {
     if (budgetDay >= 800) {
-        console.log('Высокий уровень дохода');
+        return ('Высокий');
     } else if (budgetDay >= 300 && budgetDay < 800) {
-        console.log('Средний уровень дохода');
+        return ('Средний');
     } else if (budgetDay >= 0 && budgetDay < 300) {
-        console.log('Низкий уровень дохода');
+        return ('Низкий');
     } else {
-        console.log('Что то пошло не так');
+        return ('Что то пошло не так');
     }
+}
+console.log('Какой уровень дохода:', getStatusIncome());
+
+function getbudgetMonth() {
+    let budgetMonth = money - howMuchCost1 - howMuchCost2;
+    return budgetMonth;
+}
+console.log('Накопления за период:', getbudgetMonth());
 
 function getExpensesMonth() {
     return howMuchCost1 + howMuchCost2;
@@ -39,17 +55,19 @@ function getTargetMonth() {
 }
 console.log(getTargetMonth());
 
+function getTargetMonth() {
+    let target = mission * getExpensesMonth();
+    return Math.floor(target);
+}
+console.log(getTargetMonth());
+
 
 console.log(money);
 console.log(addExpenses.split(', '));
 console.log(deposit);
-console.log(typeof money);
-console.log(typeof income);
-console.log(typeof deposit);
 console.log(requiredMonthlyExpenses1);
 console.log(requiredMonthlyExpenses2);
 console.log(howMuchCost1);
 console.log(howMuchCost2);
-console.log(budgetMonth);
-console.log(Math.ceil(target));
+//console.log(Math.ceil(target));
 console.log(Math.floor(budgetDay));
