@@ -11,6 +11,8 @@ let money = +prompt('Ваш месячный доход?', ''),
     period = 10,
     mission = 65400;
 
+addExpenses.split(', ');    
+
 let showTypeof = function (item) {
     console.log(item, typeof item);
 };
@@ -51,23 +53,6 @@ console.log('Накопления за месяц:', getAccumulatedMonth());
 
 function getTargetMonth() {
     let target = mission / getExpensesMonth();
-    return Math.ceil(target);
-}
-console.log(getTargetMonth());
-
-function getTargetMonth() {
-    let target = mission * getExpensesMonth();
     return Math.floor(target);
 }
-console.log(getTargetMonth());
-
-
-console.log(money);
-console.log(addExpenses.split(', '));
-console.log(deposit);
-console.log(requiredMonthlyExpenses1);
-console.log(requiredMonthlyExpenses2);
-console.log(howMuchCost1);
-console.log(howMuchCost2);
-//console.log(Math.ceil(target));
-console.log(Math.floor(budgetDay));
+getTargetMonth();
