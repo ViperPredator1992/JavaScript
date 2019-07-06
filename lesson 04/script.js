@@ -32,27 +32,28 @@ function getStatusIncome() {
         return ('Что то пошло не так');
     }
 }
-console.log('Какой уровень дохода:', getStatusIncome());
 
 function getbudgetMonth() {
     let budgetMonth = money - howMuchCost1 - howMuchCost2;
     return budgetMonth;
 }
-console.log('Накопления за период:', getbudgetMonth());
 
 function getExpensesMonth() {
     return howMuchCost1 + howMuchCost2;
 }
-console.log('Сумма всех расходов за месяц:', getExpensesMonth());
 
 let getAccumulatedMonth = function () {
     return money - getExpensesMonth();
 };
 let accumulatedMonth = getExpensesMonth();
-console.log('Накопления за месяц:', getAccumulatedMonth());
 
 function getTargetMonth() {
     let target = mission / getExpensesMonth();
     return Math.floor(target);
 }
 getTargetMonth();
+
+
+console.log('Сумма всех расходов за месяц:', getExpensesMonth());
+console.log('Накопления за период:', getbudgetMonth());
+console.log('Cрок достижения цели в месяцах:', getTargetMonth());
