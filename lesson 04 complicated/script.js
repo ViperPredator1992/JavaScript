@@ -8,11 +8,12 @@
 function getArgument(str) {
     str = prompt('', '');
     if (str == Number(str.trim())) {
-        console.log(' Передана не строка ');
+        alert('Передана не строка');
         
     } else {
         str == String(str.trim());
-        alert('Передана строка');
+        str == String(str.slice(0, 5)) > 10 ? str : '...';
+        console.log(' Передана строка ', str);
     }
 }
 getArgument();
