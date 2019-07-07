@@ -6,14 +6,18 @@
 // 3. Если строка более 30 знаков - то после 30 го символа часть текста скрывается и вместо них появляются три точки(...)
 
 function getArgument(str) {
+
     str = prompt('', '');
-    if (str == Number(str.trim())) {
+    str = str.trim();
+    if (typeof str != 'string') {
+        str += '';
         alert('Передана не строка');
-        
     } else {
-        str == String(str.trim());
-        str == str > 5 ? str.slice(0, 5) : '...';
-        console.log(' Передана строка ', str);
+        console.log('Передана строка');
     }
+    if (str.length <= 30) return str;
+    str = str.slice(0, 30) + '...';
+    return str;
+
 }
-getArgument();
+console.log(getArgument());
