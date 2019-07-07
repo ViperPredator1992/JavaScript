@@ -12,7 +12,7 @@ function getArgument(str) {
         
     } else {
         str == String(str.trim());
-        str == String(str.slice(0, 5)) > 10 ? str : '...';
+        str == str > 5 ? str.slice(0, 5) : '...';
         console.log(' Передана строка ', str);
     }
 }
