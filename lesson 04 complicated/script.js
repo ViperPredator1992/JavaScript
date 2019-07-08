@@ -15,8 +15,8 @@ function getArgument(str) {
         alert('Передана не строка');
     } else {
         console.log('Передана строка');
-        if (str.length  > 5) {
-            str = str.slice(0, 5) + '...';
+        if (str.length > 30) {
+            str = str.slice(0, 30) + '...';
             return str;
             //console.log(str);
         } else {
