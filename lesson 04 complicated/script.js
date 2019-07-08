@@ -9,13 +9,13 @@
 let strText = prompt();
 function getArgument(str) {
 
-    strText = str.trim();
+    str = str.trim();
 
     if (strText == Number(str)) {
         alert('Передана не строка');
     } else {
         console.log('Передана строка');
-        if (str.lenght > 5) {
+        if (str.length  > 5) {
             str = str.slice(0, 5) + '...';
             return str;
             //console.log(str);
@@ -26,12 +26,12 @@ function getArgument(str) {
 }
 console.log(getArgument(strText));
 
-            // if (typeof str != 'string') {
-            //     str += '';
-            //     alert('Передана не строка');
-            // } else {
-            //     console.log('Передана строка');
-            // }
-            // if (str.length <= 30) return str;
-            // str = str.slice(0, 30) + '...';
-            // return str;
+// if (typeof str != 'string') {
+//     str += '';
+//     alert('Передана не строка');
+// } else {
+//     console.log('Передана строка');
+// }
+// if (str.length <= 30) return str;
+// str = str.slice(0, 30) + '...';
+// return str;
