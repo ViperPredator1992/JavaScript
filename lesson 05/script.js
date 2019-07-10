@@ -55,10 +55,10 @@ let accumulatedMonth = getAccumulatedMonth();
 function getTargetMonth() {
     let target = mission / accumulatedMonth;
     target = Math.floor(target);
-    if (target >= 0) {
-        return('Цель будет достигнута');
+    if (target > 0) {
+        return ('Цель будет достигнута');
     } else {
-        return('Цель не будет достигнута'); 
+        return ('Цель не будет достигнута'); 
     }
     //return Math.floor(target);
 }
@@ -77,8 +77,6 @@ function getStatusIncome() {
     }
 }
 
-
-console.log('Уровень дохода:', budgetDay);
 console.log('Сумма всех расходов за месяц:', howMuchCost);
-console.log('Накопления за период:', budgetMonth);
+console.log('Накопления за период:', accumulatedMonth);
 console.log('Cрок достижения цели в месяцах:', targetMonth);
