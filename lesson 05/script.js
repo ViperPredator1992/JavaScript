@@ -38,7 +38,7 @@ function getExpensesMonth() {
         }
 
         do {
-            cost = prompt('Ваш месячный доход?', '');
+            cost = prompt('Во сколько это обойдется?', '');
         }
         while (isNaN(cost) || cost === '' || cost === null);
         sum += +cost;
@@ -54,15 +54,16 @@ let accumulatedMonth = getAccumulatedMonth();
 
 function getTargetMonth() {
     let target = mission / accumulatedMonth;
-    target = Math.floor(target);
+    target = Math.ceil(target);
     if (target > 0) {
-        return ('Цель будет достигнута');
+        return ('Цель будет достигнута через ' + target + ' месяцев');
     } else {
-        return ('Цель не будет достигнута'); 
+        return ('Цель не будет достигнута');
     }
-    //return Math.floor(target);
 }
 let targetMonth = getTargetMonth();
+
+budgetMonth = Math.floor(money - accumulatedMonth);
 
 let budgetDay = budgetMonth / 30;
 function getStatusIncome() {
@@ -76,7 +77,9 @@ function getStatusIncome() {
         return ('Что то пошло не так');
     }
 }
+let statusIncome = getStatusIncome();
 
 console.log('Сумма всех расходов за месяц:', howMuchCost);
 console.log('Накопления за период:', accumulatedMonth);
-console.log('Cрок достижения цели в месяцах:', targetMonth);
+console.log(targetMonth);
+console.log('Уровень дохода -', statusIncome);
