@@ -15,9 +15,9 @@ let income = 'Фриланс',
     deposit = confirm('Есть ли у вас депозит в банке?'),
     mission = 50000,
     period = 10,
+    budgetMonth,
     requiredMonthlyExpenses1,
-    requiredMonthlyExpenses2,
-    budgetMonth;
+    requiredMonthlyExpenses2;
 
 addExpenses.split(', ');
 
@@ -29,19 +29,19 @@ showTypeof(income);
 showTypeof(deposit);
 
 function getExpensesMonth() {
-    let sum = 0;
+    let sum = 0, cost;
     for (let i = 0; i < 2; i++) {
         if (i === 0) {
             requiredMonthlyExpenses1 = prompt('Какие обязательные ежемесячные расходы у вас есть?', '');
         } else if (i === 1) {
-            requiredMonthlyExpenses2 = prompt('Какие обязательные ежемесячные расходы у вас есть?', '');
+            requiredMonthlyExpenses2 = prompt('Какие обязательные ежемесячные расходы у вас есть?', '');  
         }
 
-        //sum = prompt('Во сколько это обойдется?', '');
-        if (!isNaN(sum) || sum == '' || sum == null || sum != 'string') {
-            sum += prompt('Во сколько это обойдется?', '');
-            console.log(typeof sum);
+        do {
+            cost = prompt('Ваш месячный доход?', '');
         }
+        while (isNaN(cost) || cost === '' || cost === null);
+        sum += +cost;
     }
     return sum;
 }
@@ -55,10 +55,10 @@ let accumulatedMonth = getAccumulatedMonth();
 function getTargetMonth() {
     let target = mission / accumulatedMonth;
     target = Math.floor(target);
-    if (target > 0) {
-        console.log('Цель будет достигнута');
+    if (target >= 0) {
+        return('Цель будет достигнута');
     } else {
-        console.log('Цель не будет достигнута'); 
+        return('Цель не будет достигнута'); 
     }
     //return Math.floor(target);
 }
@@ -76,9 +76,9 @@ function getStatusIncome() {
         return ('Что то пошло не так');
     }
 }
-console.log('Уровень дохода:', getStatusIncome());
 
 
+console.log('Уровень дохода:', budgetDay);
 console.log('Сумма всех расходов за месяц:', howMuchCost);
 console.log('Накопления за период:', budgetMonth);
 console.log('Cрок достижения цели в месяцах:', targetMonth);
