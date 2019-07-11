@@ -16,11 +16,9 @@ arr.forEach((item) => {
 // Например: “Делители этого числа: 1 и n”
 
 function myFunction() {
-    // console.log('Делители числа ' + i + ' являются: ' + i + ' и ' + n);
-    // document.write('Делители числа ' + i + ' являются: ' + i + ' и ' + n);
     
     divider:
-        for (let i = 2; i <= 20; i++) {
+        for (let i = 2; i <= 100; i++) {
             for (let j = 2; j <= Math.sqrt(i); j++) {
                 if (i % j == 0) continue divider;     
             }
