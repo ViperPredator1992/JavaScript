@@ -7,7 +7,7 @@
 let arr = ['1234', '2451', '35656', '45445', '2495', '4666', '7582'];
 arr.forEach((item) => {
     if (item[0] == '2' || item[0] == '4') {
-        console.log(item[0]);
+        console.log(item);
     }
 });
 
