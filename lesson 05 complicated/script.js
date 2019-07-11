@@ -15,10 +15,16 @@ arr.forEach((item) => {
 // Рядом с каждым числом написать оба делителя данного числа
 // Например: “Делители этого числа: 1 и n”
 
-function myFunction(n) {
-    for (let i = 2; i * i <= n; i == 2 ? i++ : i += 2)
-        if (n % i == 0) return false;
-    return n > 1;
+function myFunction() {
+    // console.log('Делители числа ' + i + ' являются: ' + i + ' и ' + n);
+    // document.write('Делители числа ' + i + ' являются: ' + i + ' и ' + n);
+    
+    divider:
+        for (let i = 2; i <= 20; i++) {
+            for (let j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) continue divider;     
+            }
+            console.log('Делители числа ' + i + ' являются: ' + '1' + ' и ' + i);
+        }
 }
-let divider = [...Array(100)].reduce((a, _, i) => a.concat(myFunction(i) ? `Делители числа ${i}: 1 и ${i}<br>` : []), []).join('\n');
-document.write(divider);
+myFunction();
