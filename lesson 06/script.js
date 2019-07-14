@@ -89,9 +89,7 @@ let expensesMonth = appData.getExpensesMonth(),
     targetMonth = appData.getTargetMonth(),
     statusIncome = appData.getStatusIncome();
 
-console.log('Месячный доход:', money);
-console.log('Сумма всех обязательных расходов:', appData.expensesMonth);
-console.log('Накопления за период:', appData.budgetMonth);
+
+console.log('Расходы за месяц:', appData.expensesMonth);
 console.log(targetMonth);
 console.log('Уровень дохода -', statusIncome);
-console.log(appData);
