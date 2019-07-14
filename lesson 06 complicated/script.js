@@ -9,6 +9,8 @@ for (let i = 0; i < week.length; i++) {
 
     if (week[i] == 'Пятница') {
         dayOff.classList.add('italic');
+        let date = new Date(2019, 4, 3);
+        console.log(date);
     }
     if (week[i] == 'Суббота' || week[i] == 'Воскресенье') {
         dayOff.classList.add('bold');
@@ -16,6 +18,3 @@ for (let i = 0; i < week.length; i++) {
 
     document.body.appendChild(dayOff);
 }
-
-let date = new Date(2019, 4, 3);
-alert(date);
