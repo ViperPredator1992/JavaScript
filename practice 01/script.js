@@ -53,8 +53,22 @@ let appData = {
 
         }
 
-        let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'налоги, налоги, налоги');
-        appData.addExpenses = addExpenses.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
+        let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'налоги1, налоги2, налоги3');
+        appData.addExpenses = addExpenses.split(', ');
+        
+        let expensesArray = [];
+
+        for (let key in appData.addExpenses) {
+
+            let possibleExpenses = appData.addExpenses[key];
+            possibleExpenses = possibleExpenses.trim();
+            possibleExpenses = possibleExpenses.charAt(0).toUpperCase() + possibleExpenses.substring(1).toLowerCase();
+            expensesArray.push(possibleExpenses);
+
+        }
+
+        console.log(expensesArray.join(', '));
+
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
 
         for (let i = 0; i < 2; i++) {
@@ -76,6 +90,7 @@ let appData = {
             } else {
                 i = i - 1;
             }
+
 
         }
 
@@ -142,10 +157,8 @@ let appData = {
     getConsoleLog: function () {
 
         console.log('Расходы за месяц:', appData.expensesMonth);
-        console.log(targetMonth);
-        console.log('Уровень дохода -', statusIncome);
-        console.log('Возможные расходы:', appData.addExpenses);
-        console.log(typeof (appData.addExpenses));
+        console.log(appData.getTargetMonth());
+        console.log('Уровень дохода -', appData.getStatusIncome());
         
     },
     wholeAppData: function () {
@@ -160,9 +173,8 @@ let appData = {
 appData.asking();
 appData.getBudget();
 appData.wholeAppData();
-
-let expensesMonth = appData.getExpensesMonth(),
-    targetMonth = appData.getTargetMonth(),
-    statusIncome = appData.getStatusIncome(),
-    infoDeposit = appData.getInfoDeposit(),
-    consol = appData.getConsoleLog();
+appData.getExpensesMonth();
+appData.getTargetMonth();
+appData.getStatusIncome();
+appData.getInfoDeposit();
+appData.getConsoleLog();   
