@@ -54,7 +54,7 @@ let appData = {
         }
 
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'налоги1, налоги2, налоги3');
-        appData.addExpenses = addExpenses.split(', ');
+        appData.addExpenses = addExpenses.split(',');
         
         let expensesArray = [];
 
@@ -67,7 +67,7 @@ let appData = {
 
         }
 
-        console.log(expensesArray.join(', '));
+        expensesArray.join(', ');
 
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
 
