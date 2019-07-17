@@ -1,8 +1,8 @@
 'use strict';
 
 let toCalculate = document.getElementById('start'),
-    firstPlus = document.getElementsByTagName('button'),
-    secondPlus = document.getElementsByTagName('button'),
+    firstPlus = document.getElementsByTagName('button')[0],
+    secondPlus = document.getElementsByTagName('button')[1],
     toCheckbox = document.querySelector('#deposit-check'),
     toIncome = document.querySelectorAll('.additional_income-item'),
     budgetDay = document.querySelector('.budget_day-value'),

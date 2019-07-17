@@ -30,10 +30,12 @@ let restore = document.querySelectorAll('ul'),
 
 restore[1].insertBefore(restoreOrder[12], restoreOrder[10]);
 restore[1].insertBefore(restoreOrder[14], restoreOrder[10]);
+restore[1].insertBefore(restoreOrder[8], restoreOrder[16]);
 restore[4].insertBefore(restoreOrder[41], restoreOrder[45]);
 restore[4].insertBefore(restoreOrder[45], restoreOrder[38]);
 restore[4].insertBefore(restoreOrder[38], restoreOrder[40]);
 restore[4].insertBefore(restoreOrder[40], restoreOrder[38]);
+restore[4].insertBefore(restoreOrder[41], restoreOrder[44]);
 
 //В шестой книге добавить главу “Глава 8: За пределами ES6” и поставить её в правильное место
 
