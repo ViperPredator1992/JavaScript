@@ -7,6 +7,82 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        #button {
+            background-color: yellow;
+            margin: 50px 0;
+            width: 200px;
+            height: 60px;
+            color: #000;
+            border-radius: 30px
+        }
+        input {
+            margin: 15px 0; 
+        }
+        input::placeholder {
+            color: #fff;
+        }
+        input[type="text"] {
+            background-color: green;
+            width: 150px;
+            height: 40px;
+            border: none;
+            border-radius: 20px;
+            padding: 0 10px;
+        }
+        .link_block {
+            margin-bottom: 20px;
+        }
+        .square {
+            width: 250px;
+            height: 250px;
+            background-color: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .circle {
+            background-color: #fff;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .event_btn {
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: yellow;
+        }
+        .green {
+            background-color: green;
+        }
+    </style>
+    <h1>Загрузка документа. События в JS. Обработчики событий и особенности их работы.</h1>
+    <a href="https://developer.mozilla.org/ru/docs/Web/API/EventTarget/addEventListener">EventTarget.addEventListener()</a><br>
+    <a href="https://learn.javascript.ru/introduction-browser-events">Браузерные события</a><br>
+    <a href="https://learn.javascript.ru/events-change">События изменение</a><br>
+    <a href="https://www.cat-in-web.ru/delegirovanie-sobytij-v-javascript/">Делегирование Событий</a><br>
+    <a href="https://learn.javascript.ru/event-bubbling">Всплытие - Перехват</a><br>
+    <a href="https://habr.com/ru/post/126471/">Events bubbling и events capturing</a><br>
+    <a href="https://developer.mozilla.org/ru/docs/Web/Guide/Events/%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5_%D0%B8_%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2_%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9">Создание и вызов событий</a><br>
+
+    <button onclick="alert('клик по кнопке')" id="button">Hi</button><br>
+    <input type="range" name="range" id="range" min="0" max="5"><br>
+    <input type="text" name="text" id="text" placeholder="Hello">
+    <div class="link_block">
+        <a id="link" href="https://www.google.com">google</a>
+    </div>
+    <div class="square">
+        <div class="circle">
+            <button class="event_btn">Жми на меня</button>
+        </div>
+    </div>
+
+
+
     <script src="script.js"></script>
 </body>
 </html>

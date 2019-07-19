@@ -28,13 +28,12 @@ let appData = {
     asking: function () {
 
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'налоги, налоги, налоги');
-<<<<<<< HEAD
+
         appData.addExpenses = addExpenses.toLowerCase().split(', ');
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
-=======
+
             appData.addExpenses = addExpenses.toLowerCase().split(', ');
             appData.deposit = confirm('Есть ли у вас депозит в банке?');
->>>>>>> 5b767705a73ad389ffd57e3f949e9a2f8bbec1d6
 
         for (let i = 0; i < 2; i++) {
 
@@ -51,7 +50,6 @@ let appData = {
 
     },
     getExpensesMonth: function () {
-<<<<<<< HEAD
         for (let key in appData.expenses) {
             appData.expensesMonth += +appData.expenses[key];
         }
@@ -64,8 +62,6 @@ let appData = {
     getTargetMonth: function () {
         let target = appData.mission / money;
         target = Math.ceil(target);
-=======
->>>>>>> 5b767705a73ad389ffd57e3f949e9a2f8bbec1d6
 
         for (let key in appData.expenses) {
             appData.expensesMonth += +appData.expenses[key];
