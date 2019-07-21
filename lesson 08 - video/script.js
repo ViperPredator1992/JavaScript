@@ -221,7 +221,7 @@ function greenHundler(event) {
     
 }
 
-document.querySelector('.event_btn').addEventListener('click', greenHundler, true);
-document.querySelector('.circle').addEventListener('click', greenHundler, true);
-document.querySelector('.square').addEventListener('click', greenHundler, true);
-document.querySelector('body').addEventListener('click', greenHundler, true);
+// document.querySelector('.event_btn').addEventListener('click', greenHundler, true);
+// document.querySelector('.circle').addEventListener('click', greenHundler, true);
+// document.querySelector('.square').addEventListener('click', greenHundler, true);
+// document.querySelector('body').addEventListener('click', greenHundler, true);
