@@ -38,8 +38,10 @@ let appData = {
     start: function () {
 
         if (salaryAmount.value === '') {
-            alert('Ошибка, поле "Месячный доход" должно быть заполнено');
-            return;
+            // start.addEventListener('change', () => {
+            //     start.disabled = !start.disabled;
+            // });
+            //return;
         }
 
         appData.budget = +salaryAmount.value;
@@ -68,6 +70,9 @@ let appData = {
         additionalIncomeValue.value = appData.addIncome.join(', ');
         targetMonthValue.value = Math.ceil(appData.getTargetMonth());
         incomePeriodValue.value = appData.calcSevedMoney(); 
+        periodSelect.addEventListener('change', function () {
+            incomePeriodValue.value = appData.calcSevedMoney();
+        });
 
     },
     addExpensesBlock: function () {
@@ -224,3 +229,25 @@ let appData = {
 start.addEventListener('click', appData.start);
 buttonSecondPlus.addEventListener('click', appData.addExpensesBlock);
 buttonFirstPlus.addEventListener('click', appData.addIncomeBlock);
+
+periodSelect.addEventListener('change', function () {
+    periodAmount.innerHTML = periodSelect.value;
+});
+
+let parentLeftBlock = document.querySelector('.data');
+let childLeftBlock = document.querySelector('input[type="text"]');
+
+//if (childLeftBlock) {
+
+start.addEventListener('click', function () {
+childLeftBlock.setAttribute("disabled", "disabled");
+        
+ });
+
+
+
+//} 
+
+
+console.log(parentLeftBlock.childNodes);
+console.log(childLeftBlock);
