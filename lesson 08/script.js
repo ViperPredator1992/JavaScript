@@ -235,7 +235,7 @@ periodSelect.addEventListener('change', function () {
 });
 
 let parentLeftBlock = document.querySelector('.data');
-let childLeftBlock = document.querySelector('input[type="text"]');
+let childLeftBlock = document.querySelector('.data input[type="text"]');
 
 //if (childLeftBlock) {
 
