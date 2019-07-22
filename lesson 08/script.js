@@ -1,6 +1,7 @@
 'use strict';
 
 let start = document.getElementById('start'),
+    cancel = document.getElementById('cancel'),
     buttonFirstPlus = document.getElementsByTagName('button')[0],
     buttonSecondPlus = document.getElementsByTagName('button')[1],
     depositCheck = document.querySelector('#deposit-check'),
@@ -22,6 +23,16 @@ let start = document.getElementById('start'),
     periodSelect = document.querySelector('.period-select'),
     periodAmount = document.querySelector('.period-amount');
 
+
+    if (salaryAmount == '') {
+        start.setAttribute('disabled', 'disabled');
+        console.log(start);
+    } else {
+        start.removeAttribute('disabled', 'disabled');
+        console.log(start);
+    }
+    
+
 let appData = {
     budget: 0,
     budgetDay: 0,
@@ -37,12 +48,12 @@ let appData = {
     moneyDeposit: 0,
     start: function () {
 
-        if (salaryAmount.value === '') {
-            // start.addEventListener('change', () => {
-            //     start.disabled = !start.disabled;
-            // });
-            //return;
-        }
+        // if (salaryAmount.value !== '') {
+        //     start.setAttribute('disabled', 'false');
+        //     console.log(start);
+            
+        // }
+        
 
         appData.budget = +salaryAmount.value;
         
@@ -89,6 +100,7 @@ let appData = {
     getExpenses: function () {
         
         expensesItems.forEach (function (item) {
+
             let itemExpenses = item.querySelector('.expenses-title').value;
             let cashExpenses = item.querySelector('.expenses-amount').value;
 
@@ -113,6 +125,7 @@ let appData = {
     getIncome: function () {
 
         incomeItems.forEach (function (item) {
+
             let itemIncome = item.querySelector('.income-title').value;
             let cashIncome = item.querySelector('.income-amount').value;
 
@@ -130,17 +143,21 @@ let appData = {
     getAddExpenses: function () {
         
         let addExpenses = additionalExpensesItem.value.split(',');
+
         addExpenses.forEach (function (item) {
+
             item = item.trim();
             if (item !== '') {  
                 appData.addExpenses.push(item);
             }
+
         });
 
     },
     asking: function () {
 
         let expensesArray = [];
+
         for (let key in appData.addExpenses) {
 
             let possibleExpenses = appData.addExpenses[key];
@@ -157,10 +174,13 @@ let appData = {
     getAddIncome: function () {
         
         additionalIncomeItem.forEach(function (item) {
+
              let itemValue = item.value.trim();
+
              if (itemValue !== '') {
                  appData.addIncome.push(itemValue);
              }
+
         });
 
     },
@@ -211,17 +231,17 @@ let appData = {
         return appData.budgetMonth * periodSelect.value;
 
     },
+    wholeAppData: function () {
+        
+        for (let key in appData) {
+            console.log('Наша программа ' + key + ' включает в себя данные: ' + appData[key]);
+        }
+        
+    },
     getConsoleLog: function () {
 
         console.log('Расходы за месяц:', appData.expensesMonth);
         console.log('Уровень дохода -', appData.getStatusIncome());
-
-    },
-    wholeAppData: function () {
-
-        for (let key in appData) {
-            console.log('Наша программа ' + key + ' включает в себя данные: ' + appData[key]);
-        }
 
     }
 };
@@ -229,25 +249,22 @@ let appData = {
 start.addEventListener('click', appData.start);
 buttonSecondPlus.addEventListener('click', appData.addExpensesBlock);
 buttonFirstPlus.addEventListener('click', appData.addIncomeBlock);
-
 periodSelect.addEventListener('change', function () {
     periodAmount.innerHTML = periodSelect.value;
 });
 
+
 let parentLeftBlock = document.querySelector('.data');
-let childLeftBlock = document.querySelector('.data input[type="text"]');
+let childLeftBlock = document.querySelectorAll('.data input[type="text"]');
 
-//if (childLeftBlock) {
+childLeftBlock.forEach(function (item) {
+    
+    start.addEventListener('click', function () {
 
-start.addEventListener('click', function () {
-childLeftBlock.setAttribute("disabled", "disabled");
-        
- });
+        item.setAttribute('disabled', 'disabled');
+        start.style.display = 'none';
+        cancel.style.display = 'block';
 
-
-
-//} 
-
-
-console.log(parentLeftBlock.childNodes);
-console.log(childLeftBlock);
+    });
+    
+});
