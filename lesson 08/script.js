@@ -249,21 +249,21 @@ periodSelect.addEventListener('change', function () {
     periodAmount.innerHTML = periodSelect.value;
 });
 
-salaryAmount.addEventListener('click', appData.start);
-salaryAmount.addEventListener('keyup', appData.getSalaryAmount);
+// salaryAmount.addEventListener('click', appData.start);
+// salaryAmount.addEventListener('keyup', appData.getSalaryAmount);
 
 
-let parentLeftBlock = document.querySelector('.data');
-let childLeftBlock = document.querySelectorAll('.data input[type="text"]');
+// let parentLeftBlock = document.querySelector('.data');
+// let childLeftBlock = document.querySelectorAll('.data input[type="text"]');
 
-childLeftBlock.forEach(function (item) {
+// childLeftBlock.forEach(function (item) {
     
-    start.addEventListener('click', function () {
+//     start.addEventListener('click', function () {
 
-        item.setAttribute('disabled', 'disabled');
-        start.style.display = 'none';
-        cancel.style.display = 'block';
+//         item.setAttribute('disabled', 'disabled');
+//         start.style.display = 'none';
+//         cancel.style.display = 'block';
 
-    });
+//     });
     
-});
+// });
