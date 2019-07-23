@@ -83,10 +83,8 @@ let appData = {
     },
     addExpensesBlock: function () {
         
-        let cloneexpensesItem = expensesItems[0
-        ].cloneNode(true);
-        expensesItems[0
-        ].parentNode.insertBefore(cloneexpensesItem, buttonSecondPlus);
+        let cloneexpensesItem = expensesItems[0].cloneNode(true);
+        expensesItems[0].parentNode.insertBefore(cloneexpensesItem, buttonSecondPlus);
         expensesItems = document.querySelectorAll('.expenses-items');
 
         if (expensesItems.length === 3) {
