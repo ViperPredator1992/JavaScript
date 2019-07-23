@@ -50,13 +50,20 @@ let appData = {
             return;
         }
 
+        let allInput = document.querySelectorAll('.data input[type="text"]');
+        allInput.forEach(function (item) {
+            item.setAttribute('disabled', 'disabled');
+        });
+        start.style.display = 'none';
+        cancel.style.display = 'block';
+
         appData.budget = +salaryAmount.value;
-        
-        appData.getExpenses(); 
+
+        appData.getExpenses();
         appData.getIncome();
         appData.getExpensesMonth();
         appData.getAddExpenses();
-        appData.getAddIncome(); 
+        appData.getAddIncome();
         appData.getBudget();
 
         appData.showResult();
@@ -68,21 +75,21 @@ let appData = {
 
     },
     showResult: function () {
-        
+
         budgetMonthValue.value = appData.budgetMonth;
         budgetDayValue.value = Math.ceil(appData.budgetDay);
         expensesMonthValue.value = appData.expensesMonth;
         additionalExpensesValue.value = appData.addExpenses.join(', ');
         additionalIncomeValue.value = appData.addIncome.join(', ');
         targetMonthValue.value = Math.ceil(appData.getTargetMonth());
-        incomePeriodValue.value = appData.calcSevedMoney(); 
+        incomePeriodValue.value = appData.calcSevedMoney();
         periodSelect.addEventListener('change', function () {
             incomePeriodValue.value = appData.calcSevedMoney();
         });
 
     },
     addExpensesBlock: function () {
-        
+
         let cloneexpensesItem = expensesItems[0].cloneNode(true);
         expensesItems[0].parentNode.insertBefore(cloneexpensesItem, buttonSecondPlus);
         expensesItems = document.querySelectorAll('.expenses-items');
@@ -93,8 +100,8 @@ let appData = {
 
     },
     getExpenses: function () {
-        
-        expensesItems.forEach (function (item) {
+
+        expensesItems.forEach(function (item) {
 
             let itemExpenses = item.querySelector('.expenses-title').value;
             let cashExpenses = item.querySelector('.expenses-amount').value;
@@ -119,7 +126,7 @@ let appData = {
     },
     getIncome: function () {
 
-        incomeItems.forEach (function (item) {
+        incomeItems.forEach(function (item) {
 
             let itemIncome = item.querySelector('.income-title').value;
             let cashIncome = item.querySelector('.income-amount').value;
@@ -133,16 +140,16 @@ let appData = {
         for (let key in appData.income) {
             appData.incomeMonth += +appData.income[key];
         }
-         
+
     },
     getAddExpenses: function () {
-        
+
         let addExpenses = additionalExpensesItem.value.split(',');
 
-        addExpenses.forEach (function (item) {
+        addExpenses.forEach(function (item) {
 
             item = item.trim();
-            if (item !== '') {  
+            if (item !== '') {
                 appData.addExpenses.push(item);
             }
 
@@ -167,14 +174,14 @@ let appData = {
 
     },
     getAddIncome: function () {
-        
+
         additionalIncomeItem.forEach(function (item) {
 
-             let itemValue = item.value.trim();
+            let itemValue = item.value.trim();
 
-             if (itemValue !== '') {
-                 appData.addIncome.push(itemValue);
-             }
+            if (itemValue !== '') {
+                appData.addIncome.push(itemValue);
+            }
 
         });
 
@@ -222,16 +229,16 @@ let appData = {
 
     },
     calcSevedMoney: function () {
-    
+
         return appData.budgetMonth * periodSelect.value;
 
     },
     wholeAppData: function () {
-        
+
         for (let key in appData) {
             console.log('Наша программа ' + key + ' включает в себя данные: ' + appData[key]);
         }
-        
+
     },
     getConsoleLog: function () {
 
@@ -248,22 +255,4 @@ buttonFirstPlus.addEventListener('click', appData.addIncomeBlock);
 periodSelect.addEventListener('change', function () {
     periodAmount.innerHTML = periodSelect.value;
 });
-
-// salaryAmount.addEventListener('click', appData.start);
-// salaryAmount.addEventListener('keyup', appData.getSalaryAmount);
-
-
-// let parentLeftBlock = document.querySelector('.data');
-// let childLeftBlock = document.querySelectorAll('.data input[type="text"]');
-
-// childLeftBlock.forEach(function (item) {
-    
-//     start.addEventListener('click', function () {
-
-//         item.setAttribute('disabled', 'disabled');
-//         start.style.display = 'none';
-//         cancel.style.display = 'block';
-
-//     });
-    
-// });
+salaryAmount.addEventListener('keyup', appData.getSalaryAmount);
