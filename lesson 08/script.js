@@ -23,16 +23,6 @@ let start = document.getElementById('start'),
     periodSelect = document.querySelector('.period-select'),
     periodAmount = document.querySelector('.period-amount');
 
-
-    if (salaryAmount == '') {
-        start.setAttribute('disabled', 'disabled');
-        console.log(start);
-    } else {
-        start.removeAttribute('disabled', 'disabled');
-        console.log(start);
-    }
-    
-
 let appData = {
     budget: 0,
     budgetDay: 0,
@@ -46,14 +36,19 @@ let appData = {
     deposit: false,
     percentDeposit: 0,
     moneyDeposit: 0,
+    getSalaryAmount: function () {
+
+        if (salaryAmount.value !== '') {
+            start.removeAttribute('disabled', 'disabled');
+        }
+
+    },
     start: function () {
 
-        // if (salaryAmount.value !== '') {
-        //     start.setAttribute('disabled', 'false');
-        //     console.log(start);
-            
-        // }
-        
+        if (salaryAmount.value === '') {
+            start.setAttribute('disabled', 'disabled');
+            return;
+        }
 
         appData.budget = +salaryAmount.value;
         
@@ -246,12 +241,16 @@ let appData = {
     }
 };
 
+
 start.addEventListener('click', appData.start);
 buttonSecondPlus.addEventListener('click', appData.addExpensesBlock);
 buttonFirstPlus.addEventListener('click', appData.addIncomeBlock);
 periodSelect.addEventListener('change', function () {
     periodAmount.innerHTML = periodSelect.value;
 });
+
+salaryAmount.addEventListener('click', appData.start);
+salaryAmount.addEventListener('keyup', appData.getSalaryAmount);
 
 
 let parentLeftBlock = document.querySelector('.data');
