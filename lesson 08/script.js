@@ -51,6 +51,19 @@ let appData = {
         }
 
         appData.budget = +salaryAmount.value;
+
+        let childLeftBlock = document.querySelectorAll('.data input[type="text"]');
+        childLeftBlock.forEach(function (item) {
+
+            start.addEventListener('click', function () {
+
+                item.setAttribute('disabled', 'disabled');
+                start.style.display = 'none';
+                cancel.style.display = 'block';
+
+            });
+
+        });
         
         appData.getExpenses(); 
         appData.getIncome();
@@ -251,19 +264,3 @@ periodSelect.addEventListener('change', function () {
 
 salaryAmount.addEventListener('click', appData.start);
 salaryAmount.addEventListener('keyup', appData.getSalaryAmount);
-
-
-let parentLeftBlock = document.querySelector('.data');
-let childLeftBlock = document.querySelectorAll('.data input[type="text"]');
-
-childLeftBlock.forEach(function (item) {
-    
-    start.addEventListener('click', function () {
-
-        item.setAttribute('disabled', 'disabled');
-        start.style.display = 'none';
-        cancel.style.display = 'block';
-
-    });
-    
-});
