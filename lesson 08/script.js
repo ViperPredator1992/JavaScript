@@ -256,8 +256,3 @@ periodSelect.addEventListener('change', function () {
     periodAmount.innerHTML = periodSelect.value;
 });
 salaryAmount.addEventListener('keyup', appData.getSalaryAmount);
-
-//salaryAmount.addEventListener('click', appData.start);
-
-// let parentLeftBlock = document.querySelector('.data'),
-//     childLeftBlock = document.querySelectorAll('.data input[type="text"]');
