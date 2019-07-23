@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 //'use strict';
+=======
+'use strict';
+>>>>>>> a0915c21b186c8efc10e959f67266c12dc5be2fc
 
 // Контекст вызова - this
 
@@ -30,6 +34,7 @@ function three() {
 
 }
 
+<<<<<<< HEAD
 one();
 
 /* 4 Правила про this */
@@ -71,3 +76,6 @@ function test2() {
 
 }
 test2();
+=======
+one();
+>>>>>>> a0915c21b186c8efc10e959f67266c12dc5be2fc
