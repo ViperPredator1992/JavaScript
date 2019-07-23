@@ -50,20 +50,14 @@ let appData = {
             return;
         }
 
-        appData.budget = +salaryAmount.value;
-
-        let childLeftBlock = document.querySelectorAll('.data input[type="text"]');
-        childLeftBlock.forEach(function (item) {
-
-            start.addEventListener('click', function () {
-
-                item.setAttribute('disabled', 'disabled');
-                start.style.display = 'none';
-                cancel.style.display = 'block';
-
-            });
-
+        let allInput = document.querySelectorAll('.data input[type="text"]');
+        allInput.forEach(function (item) {
+            item.setAttribute('disabled', 'disabled');
         });
+        start.style.display = 'none';
+        cancel.style.display = 'block';
+
+        appData.budget = +salaryAmount.value;
         
         appData.getExpenses(); 
         appData.getIncome();
@@ -261,6 +255,9 @@ buttonFirstPlus.addEventListener('click', appData.addIncomeBlock);
 periodSelect.addEventListener('change', function () {
     periodAmount.innerHTML = periodSelect.value;
 });
-
-salaryAmount.addEventListener('click', appData.start);
 salaryAmount.addEventListener('keyup', appData.getSalaryAmount);
+
+//salaryAmount.addEventListener('click', appData.start);
+
+// let parentLeftBlock = document.querySelector('.data'),
+//     childLeftBlock = document.querySelectorAll('.data input[type="text"]');
