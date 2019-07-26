@@ -4,7 +4,7 @@ let start = document.getElementById('start'),
     cancel = document.getElementById('cancel'),
     buttonFirstPlus = document.getElementsByTagName('button')[0],
     buttonSecondPlus = document.getElementsByTagName('button')[1],
-    depositCheck = document.querySelector('.deposit-checkmark'),
+    depositCheck = document.querySelector('#deposit-check'),
     budgetDayValue = document.querySelector('.budget_day-value'),
     budgetMonthValue = document.querySelector('.budget_month-value'),
     salaryAmount = document.querySelector('.salary-amount'),
@@ -78,15 +78,19 @@ let appData = {
     reset: function () {
 
         let allInputreset = document.querySelectorAll('input[type="text"]');
-        allInputreset.forEach(function (item) {
+        allInputreset.forEach((item) => {
             
             if (item.type == "text") {
                 item.value = '';
                 item.disabled = false;
             }
-            
+
+            periodSelect.value = 1;
+            periodAmount.innerHTML = periodSelect.value;
            
         });
+
+        depositCheck.checked = false;
 
     },
     showResult: function () {
