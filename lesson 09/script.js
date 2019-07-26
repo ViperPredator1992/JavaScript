@@ -84,7 +84,7 @@ let appData = {
                 item.value = '';
                 item.disabled = false;
             }
-            depositCheck.setAttribute('display', 'none');
+            
            
         });
 
@@ -191,7 +191,7 @@ let appData = {
     getAddIncome: function () {
 
         additionalIncomeItem.forEach((item) => {
-            
+
             let itemValue = item.value.trim();
 
             if (itemValue !== '') {
