@@ -63,6 +63,8 @@ let appData = {
 
         
         
+        
+        
 
         appData.getExpenses();
         appData.getIncome();
@@ -105,8 +107,6 @@ let appData = {
             incomePeriodValue.value = appData.calcSevedMoney();
         });
 
-        console.log('this - showResult: ', this.budget);
-
     },
     addExpensesBlock: function () {
 
@@ -131,8 +131,6 @@ let appData = {
             }
 
         });
-
-        console.log('this - getExpenses: ', this.budget);
 
     },
     addIncomeBlock: function () {
@@ -163,8 +161,6 @@ let appData = {
             appData.incomeMonth += +appData.income[key];
         }
 
-        console.log('this - getIncome: ', this.budget);
-
     },
     getAddExpenses: function () {
 
@@ -178,8 +174,6 @@ let appData = {
             }
 
         });
-
-        console.log('this - getAddExpenses: ', this.budget);
 
     },
     asking: function () {
@@ -211,8 +205,6 @@ let appData = {
 
         });
 
-        console.log('this - getAddIncome: ', this.budget);
-
     },
     getExpensesMonth: function () {
 
@@ -220,15 +212,11 @@ let appData = {
             appData.expensesMonth += +appData.expenses[key];
         }
 
-        console.log('this - getExpensesMonth: ', this.budget);
-
     },
     getBudget: function () {
 
         appData.budgetMonth = appData.budget + appData.incomeMonth - appData.expensesMonth;
         appData.budgetDay = appData.budgetMonth / 30;
-
-        console.log('this - getBudget: ', this.budget);
 
     },
     getTargetMonth: function () {
@@ -259,12 +247,8 @@ let appData = {
             while (isNaN(appData.percentDeposit) || appData.percentDeposit === null || appData.percentDeposit === '' || isNaN(appData.moneyDeposit) || appData.moneyDeposit === '' || appData.moneyDeposit === null)
         }
 
-        console.log('this - getInfoDeposit: ', this.budget);
-
     },
     calcSevedMoney: function () {
-
-        console.log('this - calcSevedMoney: ', this.budget);
 
         return appData.budgetMonth * periodSelect.value;
 
@@ -275,8 +259,6 @@ let appData = {
             console.log('Наша программа ' + key + ' включает в себя данные: ' + appData[key]);
         }
 
-        console.log('this - wholeAppData: ', this.budget);
-
     },
     getConsoleLog: function () {
 
@@ -286,8 +268,6 @@ let appData = {
     }
 };
 
-appData.start();
-
 start.addEventListener('click', appData.start);
 cancel.addEventListener('click', appData.reset);
 buttonSecondPlus.addEventListener('click', appData.addExpensesBlock);
@@ -296,3 +276,5 @@ periodSelect.addEventListener('change', function () {
     periodAmount.innerHTML = periodSelect.value;
 });
 salaryAmount.addEventListener('keyup', appData.getSalaryAmount);
+
+appData.start.call(appData);
