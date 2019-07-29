@@ -77,8 +77,8 @@ let appData = {
     },
     reset: function () {
 
-        let allInputreset = document.querySelectorAll('input[type="text"]');
-        allInputreset.forEach((item) => {
+        let allInputReset = document.querySelectorAll('input[type="text"]');
+        allInputReset.forEach((item) => {
             
             if (item.type == "text") {
                 item.value = '';
@@ -91,6 +91,20 @@ let appData = {
         });
 
         depositCheck.checked = false;
+
+        start.style.display = 'block';
+        cancel.style.display = 'none';
+
+        for (let i = 1; i < incomeItems.length; i++) {
+            incomeItems[i].parentNode.removeChild(incomeItems[i]);
+        }
+        for (let i = 1; i < expensesItems.length; i++) {
+            expensesItems[i].parentNode.removeChild(expensesItems[i]);
+        }
+
+        buttonFirstPlus.style.display = 'block';
+        buttonSecondPlus.style.display = 'block';
+        
 
     },
     showResult: function () {
