@@ -189,23 +189,6 @@ let appData = {
         });
 
     },
-    asking: function () {
-
-        let expensesArray = [];
-
-        for (let key in appData.addExpenses) {
-
-            let possibleExpenses = appData.addExpenses[key];
-            possibleExpenses = possibleExpenses.trim();
-            possibleExpenses = possibleExpenses.charAt(0).toUpperCase() + possibleExpenses.substring(1).toLowerCase();
-            expensesArray.push(possibleExpenses);
-
-        }
-
-        expensesArray.join(', ');
-        appData.deposit = confirm('Есть ли у вас депозит в банке?');
-
-    },
     getAddIncome: function () {
 
         additionalIncomeItem.forEach((item) => {
