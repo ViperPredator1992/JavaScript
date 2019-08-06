@@ -53,7 +53,7 @@ class appData {
 
     }
     start() {
-
+        
         if (salaryAmount.value === '') {
             start.setAttribute('disabled', 'disabled');
             return;
@@ -69,7 +69,7 @@ class appData {
         this.budget = +salaryAmount.value;
 
         this.getUniversal(expensesItems, `expenses`, this.expenses);
-        this.getUniversal(incomeItems, `income`, this.income);
+        this.getUniversal(incomeItems, 'income', this.income);
         this.getExpensesMonth();
         this.getInfoDeposit();
         this.getBudget();
@@ -240,8 +240,12 @@ class appData {
     }
     eventsListeners() {
 
-        start.addEventListener('click', this.start);
-        cancel.addEventListener('click', this.reset);
+        start.addEventListener('click', () => {
+            this.start();
+        });
+        cancel.addEventListener('click', () => {
+            this.reset();
+        });
 
         buttonSecondPlus.addEventListener('click', () => {
             this.addUniversalBlock(expensesItems, 'expenses', buttonSecondPlus);
@@ -262,10 +266,12 @@ class appData {
                 depositAmount.style.display = 'inline-block';
                 this.deposit = 'true';
                 depositBank.addEventListener('change', () => {
-                    const selectIndex = this.options[this.selectedIndex].value;
+                    const target = event.target;
+                    const selectIndex = target.options[target.selectedIndex].value;
                     if (selectIndex === 'other') {
                         depositPercent.style.display = 'inline-block';
                         depositPercent.value = '';
+                        depositPercent.removeAttribute('disabled');
                     } else {
                         depositPercent.style.display = 'none';
                         depositPercent.value = selectIndex;
@@ -280,7 +286,9 @@ class appData {
 
         });
 
-        salaryAmount.addEventListener('keyup', this.getSalaryAmount);
+        salaryAmount.addEventListener('keyup', () => {
+            this.getSalaryAmount();
+        });
 
     }
 }
