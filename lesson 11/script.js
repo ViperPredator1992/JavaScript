@@ -102,9 +102,13 @@ class appData {
         start.style.display = 'block';
         cancel.style.display = 'none';
 
+
+        incomeItems = document.querySelectorAll('.income-items');
         for (let i = 1; i < incomeItems.length; i++) {
             incomeItems[i].parentNode.removeChild(incomeItems[i]);
         }
+
+        expensesItems = document.querySelectorAll('.expenses-items');
         for (let i = 1; i < expensesItems.length; i++) {
             expensesItems[i].parentNode.removeChild(expensesItems[i]);
         }
