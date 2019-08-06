@@ -128,7 +128,7 @@ class appData {
         });
 
     }
-    addUniversalBlock(universal, universalItems, buttonPlus) {
+    addUniversalBlock(universalItems, universal, buttonPlus) {
 
         const cloneUniversalItem = universalItems[0].cloneNode(true);
         universalItems[0].parentNode.insertBefore(cloneUniversalItem, buttonPlus);
@@ -248,11 +248,11 @@ class appData {
         });
 
         buttonSecondPlus.addEventListener('click', () => {
-            this.addUniversalBlock(expensesItems, 'expenses', buttonSecondPlus);
+            this.addUniversalBlock(expensesItems, `expenses`, buttonSecondPlus);
         });
 
         buttonFirstPlus.addEventListener('click', () => {
-            this.addUniversalBlock(incomeItems, 'income', buttonFirstPlus);
+            this.addUniversalBlock(incomeItems, `income`, buttonFirstPlus);
         });
 
         periodSelect.addEventListener('change', () => {
