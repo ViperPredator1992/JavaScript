@@ -118,6 +118,7 @@ class appData {
 
     }
     showResult() {
+        
 
         budgetMonthValue.value = this.budgetMonth;
         budgetDayValue.value = Math.ceil(this.budgetDay);
