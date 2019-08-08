@@ -339,5 +339,5 @@ const newTransport2 = {
     quadeBike: 'polaris'
 };
 
-Object.assign(transport2, newTransport2)
+Object.assign(transport2, newTransport2);
 console.log(transport2);
