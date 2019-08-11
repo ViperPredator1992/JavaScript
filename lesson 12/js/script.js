@@ -55,7 +55,7 @@ window.addEventListener('DOMContentLoaded', () => {
             upDateClock();
 
     }
-    countTimer('11 august 2019');
+    countTimer('15 august 2019');
     
 
 });
