@@ -88,13 +88,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
             let target = event.target;
                 
-            if (target.classList.contains('menu')) {
-                target = target.closest('.menu');
+            if (target.closest('.menu')) {
                 menu.classList.add('active-menu');
-            }
-            else {
-                target.classList.contains('close-btn');
+            } else if (target.classList.contains('close-btn')) {
                 menu.classList.remove('active-menu');
+            } else if (target.tagName !== 'MENU') {
+                menu.classList.remove('active-menu');
+            } else {
+                return;
             }
 
         });
