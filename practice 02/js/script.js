@@ -42,21 +42,25 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
                 
                 
-                if (timer.timeRemaining > 0) {
-                    setInterval(upDateClock, 1000);
+                if (timer.timeRemaining <= 0) {
+                    clearInterval(upDateClockInterval);
                 } 
-                else if (timer.timeRemaining < 0) {
+
+                if (timer.timeRemaining < 0) {
                     timerHours.textContent = '00';
                     timerMinutes.textContent = '00';
                     timerSeconds.textContent = '00';
                 }
 
             };
+
+            let upDateClockInterval = setInterval(upDateClock, 1000);
+            
             upDateClock();
 
     };
 
-    countTimer('15 august 2019');
+    countTimer('14 august 2019');
 
     const toggleMenu = () => {
 
@@ -180,7 +184,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const slider = () => {
 
         const slide = document.querySelectorAll('.portfolio-item'),
-            btn = document.querySelectorAll('.portfolio-btn'),
+            dotsParent = document.querySelectorAll('.portfolio-dots'),
             dot  = document.querySelectorAll('.dot'),
             slider = document.querySelector('.portfolio-content');
 
@@ -195,14 +199,24 @@ window.addEventListener('DOMContentLoaded', () => {
             elem[index].classList.add(strClass);
         };
 
+        for (let i = 0; i < slide.length; i++) {
+
+            const dots = document.createElement('li');
+            dots.className = 'dot';
+            dotsParent[0].appendChild(dots);
+
+        }
+
         const autoPlaySlide = () => {
             
             prevSlide(slide, currentSlide, 'portfolio-item-active');
             prevSlide(dot, currentSlide, 'dot-active');
+
             currentSlide++;
             if (currentSlide >= slide.length) {
                 currentSlide = 0;
             }
+
             nextSlide(slide, currentSlide, 'portfolio-item-active');
             nextSlide(dot, currentSlide, 'dot-active');
 
@@ -272,7 +286,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         });
 
-        startSlide(1500);
+        startSlide(150000);
 
     };
 
