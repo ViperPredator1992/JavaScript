@@ -191,21 +191,25 @@ window.addEventListener('DOMContentLoaded', () => {
         let currentSlide = 0,
             interval;
 
-        const prevSlide = (elem, index, strClass) => {
-            elem[index].classList.remove(strClass);
+        const prevSlide = (elem, index, nameClass) => {
+            elem[index].classList.remove(nameClass);
         };
 
-        const nextSlide = (elem, index, strClass) => {
-            elem[index].classList.add(strClass);
+        const nextSlide = (elem, index, nameClass) => {
+            elem[index].classList.add(nameClass);
         };
 
-        for (let i = 0; i < slide.length; i++) {
+       // const createDots = () => {
+            for (let i = 0; i < slide.length; i++) {
 
-            const dots = document.createElement('li');
-            dots.className = 'dot';
-            dotsParent[0].appendChild(dots);
-
-        }
+                const dots = document.createElement('li');
+                dots.className = 'dot';
+                dotsParent[0].appendChild(dots);
+                console.log(dots);
+            }
+        //};
+        // createDots();
+        
 
         const autoPlaySlide = () => {
             
@@ -233,7 +237,6 @@ window.addEventListener('DOMContentLoaded', () => {
         slider.addEventListener('click', (event) => {
 
             event.preventDefault();
-
             let target = event.target;
 
             if (!target.matches('.portfolio-btn, .dot')) {
