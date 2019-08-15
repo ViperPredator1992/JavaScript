@@ -185,11 +185,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const slide = document.querySelectorAll('.portfolio-item'),
             dotsParent = document.querySelectorAll('.portfolio-dots'),
-            dot  = document.querySelectorAll('.dot'),
             slider = document.querySelector('.portfolio-content');
 
         let currentSlide = 0,
             interval;
+
+        for (let i = 0; i < slide.length; i++) {
+
+            const dots = document.createElement('li');
+            dots.className = 'dot';
+            dotsParent[0].appendChild(dots);
+
+        }
+
+        const dot = document.querySelectorAll('.dot');
 
         const prevSlide = (elem, index, nameClass) => {
             elem[index].classList.remove(nameClass);
@@ -198,18 +207,6 @@ window.addEventListener('DOMContentLoaded', () => {
         const nextSlide = (elem, index, nameClass) => {
             elem[index].classList.add(nameClass);
         };
-
-       // const createDots = () => {
-            for (let i = 0; i < slide.length; i++) {
-
-                const dots = document.createElement('li');
-                dots.className = 'dot';
-                dotsParent[0].appendChild(dots);
-                console.log(dots);
-            }
-        //};
-        // createDots();
-        
 
         const autoPlaySlide = () => {
             
@@ -289,7 +286,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         });
 
-        startSlide(150000);
+        startSlide(1500);
 
     };
 
