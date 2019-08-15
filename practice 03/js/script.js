@@ -181,119 +181,122 @@ window.addEventListener('DOMContentLoaded', () => {
     tabs();
 
     // Slider
-    // const slider = () => {
+    const slider = () => {
 
-    //     const slide = document.querySelectorAll('.portfolio-item'),
-    //         dotsParent = document.querySelectorAll('.portfolio-dots'),
-    //         dot  = document.querySelectorAll('.dot'),
-    //         slider = document.querySelector('.portfolio-content');
+        const slide = document.querySelectorAll('.portfolio-item'),
+            slider = document.querySelector('.portfolio-content');
 
-    //     let currentSlide = 0,
-    //         interval;
+        let currentSlide = 0,
+            interval;
 
-    //     const prevSlide = (elem, index, nameClass) => {
-    //         elem[index].classList.remove(nameClass);
-    //     };
+        for (let i = 0; i < slide.length; i++) {
 
-    //     const nextSlide = (elem, index, nameClass) => {
-    //         elem[index].classList.add(nameClass);
-    //     };
+            const dotsParent = document.querySelectorAll('.portfolio-dots'),
+                dots = document.createElement('li');
 
-    //    // const createDots = () => {
-    //         for (let i = 0; i < slide.length; i++) {
+            if (i === 0) {
+                dots.setAttribute('class', 'dot dot-active');
+                dotsParent[0].appendChild(dots);
+            } else {
+                dots.setAttribute('class', 'dot');
+                dotsParent[0].appendChild(dots);
+            }
 
-    //             const dots = document.createElement('li');
-    //             dots.className = 'dot';
-    //             dotsParent[0].appendChild(dots);
-    //             console.log(dots);
-    //         }
-    //     //};
-    //     // createDots();
-        
+        }
 
-    //     const autoPlaySlide = () => {
-            
-    //         prevSlide(slide, currentSlide, 'portfolio-item-active');
-    //         prevSlide(dot, currentSlide, 'dot-active');
+        const dot = document.querySelectorAll('.dot');
 
-    //         currentSlide++;
-    //         if (currentSlide >= slide.length) {
-    //             currentSlide = 0;
-    //         }
+        const prevSlide = (elem, index, nameClass) => {
+            elem[index].classList.remove(nameClass);
+        };
 
-    //         nextSlide(slide, currentSlide, 'portfolio-item-active');
-    //         nextSlide(dot, currentSlide, 'dot-active');
+        const nextSlide = (elem, index, nameClass) => {
+            elem[index].classList.add(nameClass);
+        };
 
-    //     };
+        const autoPlaySlide = () => {
 
-    //     const startSlide = (time = 3000) => {
-    //         interval = setInterval(autoPlaySlide, time);
-    //     };
+            prevSlide(slide, currentSlide, 'portfolio-item-active');
+            prevSlide(dot, currentSlide, 'dot-active');
 
-    //     const stopSlide = () => {
-    //         clearInterval(interval);
-    //     };
+            currentSlide++;
+            if (currentSlide >= slide.length) {
+                currentSlide = 0;
+            }
 
-    //     slider.addEventListener('click', (event) => {
+            nextSlide(slide, currentSlide, 'portfolio-item-active');
+            nextSlide(dot, currentSlide, 'dot-active');
 
-    //         event.preventDefault();
-    //         let target = event.target;
+        };
 
-    //         if (!target.matches('.portfolio-btn, .dot')) {
-    //             return;
-    //         }
+        const startSlide = (time = 3000) => {
+            interval = setInterval(autoPlaySlide, time);
+        };
 
-    //         prevSlide(slide, currentSlide, 'portfolio-item-active');
-    //         prevSlide(dot, currentSlide, 'dot-active');
+        const stopSlide = () => {
+            clearInterval(interval);
+        };
 
-    //         if (target.matches('#arrow-right')) {
-    //             currentSlide++;
-    //         } else if (target.matches('#arrow-left')) {
-    //             currentSlide--;
-    //         } else if (target.matches('.dot')) {
-    //             dot.forEach((elem, index) => {
-    //                 if (elem === target) {
-    //                     currentSlide = index;
-    //                 }
-    //             });
-    //         }
+        slider.addEventListener('click', (event) => {
 
-    //         if (currentSlide >= slide.length) {
-    //             currentSlide = 0;
-    //         }
+            event.preventDefault();
+            let target = event.target;
 
-    //         if (currentSlide < 0) {
-    //             currentSlide = slide.length - 1;
-    //         }
+            if (!target.matches('.portfolio-btn, .dot')) {
+                return;
+            }
 
-    //         nextSlide(slide, currentSlide, 'portfolio-item-active');
-    //         nextSlide(dot, currentSlide, 'dot-active');
+            prevSlide(slide, currentSlide, 'portfolio-item-active');
+            prevSlide(dot, currentSlide, 'dot-active');
 
-    //     });
+            if (target.matches('#arrow-right')) {
+                currentSlide++;
+            } else if (target.matches('#arrow-left')) {
+                currentSlide--;
+            } else if (target.matches('.dot')) {
+                dot.forEach((elem, index) => {
+                    if (elem === target) {
+                        currentSlide = index;
+                    }
+                });
+            }
 
-    //     slider.addEventListener('mouseover', (event) => {
+            if (currentSlide >= slide.length) {
+                currentSlide = 0;
+            }
 
-    //         if (event.target.matches('.portfolio-btn') || 
-    //         event.target.matches('.dot')) {
-    //             stopSlide();
-    //         }
+            if (currentSlide < 0) {
+                currentSlide = slide.length - 1;
+            }
 
-    //     });
+            nextSlide(slide, currentSlide, 'portfolio-item-active');
+            nextSlide(dot, currentSlide, 'dot-active');
 
-    //     slider.addEventListener('mouseout', (event) => {
+        });
 
-    //         if (event.target.matches('.portfolio-btn') ||
-    //             event.target.matches('.dot')) {
-    //             startSlide();
-    //         }
+        slider.addEventListener('mouseover', (event) => {
 
-    //     });
+            if (event.target.matches('.portfolio-btn') ||
+                event.target.matches('.dot')) {
+                stopSlide();
+            }
 
-    //     startSlide(150000);
+        });
 
-    // };
+        slider.addEventListener('mouseout', (event) => {
 
-    // slider();
+            if (event.target.matches('.portfolio-btn') ||
+                event.target.matches('.dot')) {
+                startSlide();
+            }
+
+        });
+
+        startSlide(1500);
+
+    };
+
+    slider();
 
     // Calc
     const calc = (price = 100) => {
