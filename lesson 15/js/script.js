@@ -305,18 +305,32 @@ window.addEventListener('DOMContentLoaded', () => {
         let teamFoto;
 
         image.forEach((elem, index) => {
+
             image[index].addEventListener('mouseenter', (event) => {
                 teamFoto = event.target.getAttribute('src');
                 event.target.src = event.target.dataset.img;
             });
+
             image[index].addEventListener('mouseleave', (event) => {
                 event.target.src = teamFoto;
             });
+            
         });
         
 
     };
 
     teamImage();
+
+    // Calc
+    const calc = () => {
+
+        const input = document.querySelectorAll('input');
+
+        input.replace(/\d/gi);
+
+    };
+
+    calc();
 
 });
