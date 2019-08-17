@@ -301,6 +301,15 @@ window.addEventListener('DOMContentLoaded', () => {
     // Calc
     const calc = (price = 100) => {
 
+        const inputsCalc = document.querySelectorAll('.calc-block > input');
+
+        inputsCalc.forEach((elem) => {
+            elem.addEventListener('keyup', (event) => {
+                let target = event.target;
+                target.value = target.value.replace(/[^\d,]/g, '');
+            });
+        });
+
         const calcBlock = document.querySelector('.calc-block'),
             calcType = document.querySelector('.calc-type'),
             calcSquare = document.querySelector('.calc-square'),
