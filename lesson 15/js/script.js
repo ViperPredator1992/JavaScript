@@ -325,10 +325,14 @@ window.addEventListener('DOMContentLoaded', () => {
     // Calc
     const calc = () => {
 
-        let inputNumber = document.querySelectorAll('input'),
-            inputNumberResult = 'string';
-        inputNumber = inputNumberResult;
-        inputNumberResult.replace(/\w/);
+        const inputsCalc = document.querySelectorAll('.calc-block > input');
+
+        inputsCalc.forEach((elem) => {
+            elem.addEventListener('keyup', (event) => {
+                let target = event.target;
+                target.value = target.value.replace(/[^\d,]/g, '');
+            });
+        });
 
     };
 
