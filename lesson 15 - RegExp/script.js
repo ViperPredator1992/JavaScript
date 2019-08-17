@@ -17,16 +17,11 @@ const changeTime = document.getElementById('task2').innerHTML;
 const resultChangeTime = changeTime.replace(/<b>\w<b>/gi, '<b></b>');
 console.log("TCL: resultChangeTime", resultChangeTime)
 
+/* 3. Создать запрос во всем документе найти текст в кавычках и заключить его в теги <mark></mark> */
+
+
 /* 4. Замените в документе домены вида http://site.ru на <a href="http://site.ru">site.ru</a> */
 
-// const changeLink = document.getElementById('task2').innerHTML;
-// const resultChangeLink = changeLink.replace(/\http\:\//\site.ru\/ )
-// const getDomain = (data) => {
-//     const a = document.createElement('a');
-//     a.href = data;
-//     return a.hostname;
-// };
-// const urls = ['http://site.ru', 'http://google.com'];
-// const links = urls.map(link => `<a href="${link}">${getDomain(link)}</a>`);
 
-// console.log(links);
+/* 5. Напишите регулярное выражение для поиска цвета, заданного как #ABCDEF, вывести цвет в консоль */
+
