@@ -325,9 +325,10 @@ window.addEventListener('DOMContentLoaded', () => {
     // Calc
     const calc = () => {
 
-        const input = document.querySelectorAll('input');
-
-        input.replace(/\d/gi);
+        let inputNumber = document.querySelectorAll('input'),
+            inputNumberResult = 'string';
+        inputNumber = inputNumberResult;
+        inputNumberResult.replace(/\w/);
 
     };
 
