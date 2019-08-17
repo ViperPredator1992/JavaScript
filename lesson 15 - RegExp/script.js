@@ -17,8 +17,8 @@ task1.innerHTML = task1.innerHTML.replace(/функция/g, '<strong>функц
 task2.innerHTML = task2.innerHTML.replace(/(\d{2}:\d{2})/gi, (val1) => `<b>${val1}</b>`);
 
 /* 3. Создать запрос во всем документе найти текст в кавычках и заключить его в теги <mark></mark> */
-
-task1.innerHTML = task1.innerHTML.replace(/("([^"]*)")/gi, (val1) => `<mark>${val1}</mark>`);
+// « » // Alt + 0171 = «Alt + 0187 =»
+task1.innerHTML = task1.innerHTML.replace(/("([^"]*)")|(«([^"]*?)»)/gi, (val1) => `<mark>${val1}</mark>`);
 task2.innerHTML = task2.innerHTML.replace(/("([^"]*)")/gi, (val1) => `<mark>${val1}</mark>`);
 
 /* 4. Замените в документе домены вида http://site.ru на <a href="http://site.ru">site.ru</a> */
