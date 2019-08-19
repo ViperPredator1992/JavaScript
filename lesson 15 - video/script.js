@@ -78,7 +78,7 @@ console.log("TCL: string2", string2);
 const result5 = string2.match(/\+/);
 console.log("TCL: result5", result5);
 
-/* Для получения всех вимволов в строке используется точка - . */
+/* Для получения всех символов в строке используется точка - . */
 const result6 = string2.match(/./g);
 console.log("TCL: result6", result6);
 
@@ -102,11 +102,11 @@ console.log("TCL: result10", result10);
 const string4 = `Привет друг, добро Пожаловать, прошу проходите
 мой номер телефона   _   8-999-123-45-67`;
 
-/* Есть нужно найти все цифры */
+/* Если нужно найти все цифры */
 const result11 = string4.match(/[0-9]/gi);
 console.log("TCL: result11", result11);
 
-/* Есть нужно найти все символы кроме без цифр */
+/* Если нужно найти все символы кроме без цифр */
 const result12 = string4.match(/[^0-9]/gi);
 console.log("TCL: result12", result12);
 
