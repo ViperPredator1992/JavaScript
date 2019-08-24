@@ -35,6 +35,7 @@ window.addEventListener('DOMContentLoaded', () => {
             if (timer.minutes < 10) {
                 timerMinutes.textContent = '0' + timer.minutes;
             }
+<<<<<<< HEAD
 
             timerSeconds.textContent = timer.seconds;
             if (timer.seconds < 10) {
@@ -42,6 +43,15 @@ window.addEventListener('DOMContentLoaded', () => {
             }
 
 
+=======
+
+            timerSeconds.textContent = timer.seconds;
+            if (timer.seconds < 10) {
+                timerSeconds.textContent = '0' + timer.seconds;
+            }
+
+
+>>>>>>> 3b5160258ec86ca48e567ed32282c66b294c07cb
             if (timer.timeRemaining <= 0) {
                 clearInterval(upDateClockInterval);
             }
@@ -61,10 +71,14 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     countTimer('30 august 2019');
 =======
     countTimer('30 september 2019');
 >>>>>>> 7320db7e3e21d89c79bcf7eb0250aaf5cf1c3485
+=======
+    countTimer('30 september 2019');
+>>>>>>> 3b5160258ec86ca48e567ed32282c66b294c07cb
 
     const toggleMenu = () => {
 
@@ -367,7 +381,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 total = price * typeValue * squareValue * countValue * dayValue;
             }
 
-            totalValue.textContent = Math.floor(total);
+            totalValue.textContent = total;
 
         };
 
@@ -393,6 +407,7 @@ window.addEventListener('DOMContentLoaded', () => {
             successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         const form = document.getElementById('form1'),
             form2 = document.getElementById('form2'),
             form3 = document.getElementById('form3');
@@ -401,6 +416,8 @@ window.addEventListener('DOMContentLoaded', () => {
         formName.innerHTML = formName.innerHTML.replace(/(^[A-Z]{1}[a-z]{1,14} [A-Z]{1}[a-z]{1,14}$)|(^[А-Я]{1}[а-я]{1,14} [А-Я]{1}[а-я]{1,14}$)/);
         console.log("TCL: sendForm -> formName.innerHTML", formName)
 
+=======
+>>>>>>> 3b5160258ec86ca48e567ed32282c66b294c07cb
         const statusMessage = document.createElement('div');
         statusMessage.style.cssText = 'font-size: 2rem; color: #fff;';
 =======
@@ -456,48 +473,34 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 >>>>>>> 7320db7e3e21d89c79bcf7eb0250aaf5cf1c3485
 
-        form.addEventListener('submit', (event) => {
+        const allForm = document.querySelectorAll('form'),
+            allInput = document.querySelectorAll('input');
 
-            event.preventDefault();
-            form.appendChild(statusMessage);
-            statusMessage.textContent = loadMessage;
+        allForm.forEach((elem) => {
 
-            const formData = new FormData(form);
-            let body = {};
+            elem.addEventListener('submit', (event) => {
 
-            formData.forEach((val, key) => {
-                body[key] = val;
+                event.preventDefault();
+                elem.appendChild(statusMessage);
+                statusMessage.textContent = loadMessage;
+
+                const formData = new FormData(elem);
+                let body = {};
+
+                formData.forEach((val, key) => {
+                    body[key] = val;
+                });
+
+                postData(body, () => {
+                    statusMessage.textContent = successMessage;
+                }, (error) => {
+                    statusMessage.textContent = errorMessage;
+                    console.error(error);
+                });
+
             });
 
-            postData(body, () => {
-                statusMessage.textContent = successMessage;
-            }, (error) => {
-                statusMessage.textContent = errorMessage;
-                console.error(error);
-            });
-
-        });
-
-        form2.addEventListener('submit', (event) => {
-
-            event.preventDefault();
-            form2.appendChild(statusMessage);
-            statusMessage.textContent = loadMessage;
-
-            const formData = new FormData(form2);
-            let body = {};
-
-            formData.forEach((val, key) => {
-                body[key] = val;
-            });
-
-            postData(body, () => {
-                statusMessage.textContent = successMessage;
-            }, (error) => {
-                statusMessage.textContent = errorMessage;
-                console.error(error);
-            });
-
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             validPhone();
@@ -513,16 +516,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
             const formData = new FormData(form3);
             let body = {};
+=======
+            elem.addEventListener('input', (elem) => {
+>>>>>>> 3b5160258ec86ca48e567ed32282c66b294c07cb
 
-            formData.forEach((val, key) => {
-                body[key] = val;
-            });
+                if (elem.target.name === 'user_name') {
+                    elem.srcElement.value = elem.srcElement.value.replace(/[^а-яёА-ЯЁ\s]/gi, ``);
+                } else if (elem.target.name === 'user_phone') {
+                    elem.srcElement.value = elem.srcElement.value.replace(/[^+0-9]/gi, ``);
+                } else if (elem.target.name === 'user_message') {
+                    elem.srcElement.value = elem.srcElement.value.replace(/[^а-яёА-ЯЁ\s]/gi, ``);
+                } else {
+                    return;
+                }
 
-            postData(body, () => {
-                statusMessage.textContent = successMessage;
-            }, (error) => {
-                statusMessage.textContent = errorMessage;
-                console.error(error);
             });
 
         });
@@ -539,6 +546,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 if (request.status === 200) {
                     outputData();
+                    allInput.forEach((item) => item.value = '');
                 } else {
                     errorData(request.status);
                 }
