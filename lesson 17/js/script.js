@@ -391,118 +391,49 @@ window.addEventListener('DOMContentLoaded', () => {
         const statusMessage = document.createElement('div');
         statusMessage.style.cssText = 'font-size: 2rem; color: #fff;';
 
-        const form = document.getElementById('form1'),
-            form2 = document.getElementById('form2'),
-            form3 = document.getElementById('form3'),
-            form1Name = document.getElementById('form1-name'),
-            form2Name = document.getElementById('form2-name'),
-            form2Message = document.getElementById('form2-message'),
-            form3Name = document.getElementById('form3-name'),
-            form1Phone = document.getElementById('form1-phone'),
-            //form2Phone = document.getElementById('form2-phone'),
-            form3Phone = document.getElementById('form3-phone');
+        const allForm = document.querySelectorAll('form'),
+            allInput = document.querySelectorAll('input');
 
-        form1Name.addEventListener('input', (event) => {
-            let target = event.target;
-            target.value = target.value.replace(/[^а-яё\s]/ig, '');
-        });
+        allForm.forEach((elem) => {
 
-        form2Name.addEventListener('input', (event) => {
-            let target = event.target;
-            target.value = target.value.replace(/[^а-яё\s]/ig, '');
-        });
+            elem.addEventListener('submit', (event) => {
 
-        const form2Phone = document.getElementById('form2-phone').value;
+                event.preventDefault();
+                elem.appendChild(statusMessage);
+                statusMessage.textContent = loadMessage;
 
-        const validPhone = () => {
+                const formData = new FormData(elem);
+                let body = {};
 
-            const reg = /^\+?[78]([()-]*\d){10}$/;
-            const valid = reg.test(form2Phone);
-            if (valid) {
-                console.log('true');
-            }
-            else {
-                console.log('false');
-            }
-            return valid;
+                formData.forEach((val, key) => {
+                    body[key] = val;
+                });
 
-        };
+                postData(body, () => {
+                    statusMessage.textContent = successMessage;
+                }, (error) => {
+                    statusMessage.textContent = errorMessage;
+                    console.error(error);
+                });
 
-
-        form2Message.addEventListener('input', (event) => {
-            let target = event.target;
-            target.value = target.value.replace(/[^а-яё\s]/ig, '');
-        });
-
-        form3Name.addEventListener('input', (event) => {
-            let target = event.target;
-            target.value = target.value.replace(/[^а-яё\s]/ig, '');
-        });
-
-        form.addEventListener('submit', (event) => {
-
-            event.preventDefault();
-            form.appendChild(statusMessage);
-            statusMessage.textContent = loadMessage;
-
-            const formData = new FormData(form);
-            let body = {};
-
-            formData.forEach((val, key) => {
-                body[key] = val;
-            });
-
-            postData(body, () => {
-                statusMessage.textContent = successMessage;
-            }, (error) => {
-                statusMessage.textContent = errorMessage;
-                console.error(error);
             });
 
         });
 
-        form2.addEventListener('submit', (event) => {
+        allForm.forEach((item) => {
 
-            event.preventDefault();
-            form2.appendChild(statusMessage);
-            statusMessage.textContent = loadMessage;
+            item.addEventListener('input', (elem) => {
 
-            const formData = new FormData(form2);
-            let body = {};
+                if (elem.target.name === 'user_name') {
+                    elem.srcElement.value = elem.srcElement.value.replace(/[^а-яёА-ЯЁ\s]/gi, ``);
+                } else if (elem.target.name === 'user_phone') {
+                    elem.srcElement.value = elem.srcElement.value.replace(/^((\+[0-9]{1,3})+([0-9]){10})$/gm);
+                } else if (elem.target.name === 'user_message') {
+                    elem.srcElement.value = elem.srcElement.value.replace(/[^а-яёА-ЯЁ\s]/ig, ``);
+                } else {
+                    return;
+                }
 
-            formData.forEach((val, key) => {
-                body[key] = val;
-            });
-
-            postData(body, () => {
-                statusMessage.textContent = successMessage;
-            }, (error) => {
-                statusMessage.textContent = errorMessage;
-                console.error(error);
-            });
-
-            validPhone();
-
-        });
-
-        form3.addEventListener('submit', (event) => {
-
-            event.preventDefault();
-            form3.appendChild(statusMessage);
-            statusMessage.textContent = loadMessage;
-
-            const formData = new FormData(form3);
-            let body = {};
-
-            formData.forEach((val, key) => {
-                body[key] = val;
-            });
-
-            postData(body, () => {
-                statusMessage.textContent = successMessage;
-            }, (error) => {
-                statusMessage.textContent = errorMessage;
-                console.error(error);
             });
 
         });
@@ -519,13 +450,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 if (request.status === 200) {
                     outputData();
+                    allInput.forEach((item) => item.value = '');
                 } else {
                     errorData(request.status);
                 }
 
             });
-
-
 
             request.open('POST', './server.php');
             request.setRequestHeader('Content-Type', 'application/json');
