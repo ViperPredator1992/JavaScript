@@ -409,13 +409,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     body[key] = val;
                 });
 
-                // postData(body, () => {
-                //     statusMessage.textContent = successMessage;
-                // }, (error) => {
-                //     statusMessage.textContent = errorMessage;
-                //     console.error(error);
-                // });
-
                 postData(body)
                     .then(statusMessage.textContent = successMessage)
                     .catch(errorMessage => console.error(errorMessage));
@@ -449,8 +442,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
 
                     if (request.status === 200) {
-                        resolve();
-                        allInput.forEach((item) => item.value = '');
+                        resolve(request.status)
+                            .then(allInput.forEach((item) => item.value = ''));
                     } else {
                         reject(request.status);
                     }
