@@ -418,11 +418,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             });
 
-        });
-
-        allForm.forEach((item) => {
-
-            item.addEventListener('input', (elem) => {
+            elem.addEventListener('input', (elem) => {
 
                 if (elem.target.name === 'user_name') {
                     elem.srcElement.value = elem.srcElement.value.replace(/[^а-яёА-ЯЁ\s]/gi, ``);
