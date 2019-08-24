@@ -411,6 +411,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 postData(body)
                     .then(statusMessage.textContent = successMessage)
+                    .then(allInput.forEach((item) => item.value = ''))
                     .catch(errorMessage => console.error(errorMessage));
 
             });
@@ -442,8 +443,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
 
                     if (request.status === 200) {
-                        resolve(request.status)
-                            .then(allInput.forEach((item) => item.value = ''));
+                        resolve(request.status);
                     } else {
                         reject(request.status);
                     }
