@@ -4,63 +4,63 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Timer
     const countTimer = (deadline) => {
-        
+
         const timerHours = document.querySelector('#timer-hours'),
             timerMinutes = document.querySelector('#timer-minutes'),
             timerSeconds = document.querySelector('#timer-seconds');
 
-            const getTimeRemaining = () => {
+        const getTimeRemaining = () => {
 
-                const dateStop = new Date(deadline).getTime(),
-                    dateNow = new Date().getTime(),
-                    timeRemaining = (dateStop - dateNow) / 1000,
-                    seconds = Math.floor(timeRemaining % 60),
-                    minutes = Math.floor((timeRemaining / 60) % 60),
-                    hours = Math.floor(timeRemaining / 60 / 60);   
+            const dateStop = new Date(deadline).getTime(),
+                dateNow = new Date().getTime(),
+                timeRemaining = (dateStop - dateNow) / 1000,
+                seconds = Math.floor(timeRemaining % 60),
+                minutes = Math.floor((timeRemaining / 60) % 60),
+                hours = Math.floor(timeRemaining / 60 / 60);
 
-                return { timeRemaining, hours, minutes, seconds };
+            return { timeRemaining, hours, minutes, seconds };
 
-            };
+        };
 
-            const upDateClock = () => {
-                
-                const timer = getTimeRemaining();
+        const upDateClock = () => {
 
-                timerHours.textContent = timer.hours; 
-                if (timer.hours < 10) {
-                    timerHours.textContent = '0' + timer.hours;
-                }
+            const timer = getTimeRemaining();
 
-                timerMinutes.textContent = timer.minutes;
-                if (timer.minutes < 10) {
-                    timerMinutes.textContent = '0' + timer.minutes;
-                }
+            timerHours.textContent = timer.hours;
+            if (timer.hours < 10) {
+                timerHours.textContent = '0' + timer.hours;
+            }
 
-                timerSeconds.textContent = timer.seconds;
-                if (timer.seconds < 10) {
-                    timerSeconds.textContent = '0' + timer.seconds;
-                }
-                
-                
-                if (timer.timeRemaining <= 0) {
-                    clearInterval(upDateClockInterval);
-                } 
+            timerMinutes.textContent = timer.minutes;
+            if (timer.minutes < 10) {
+                timerMinutes.textContent = '0' + timer.minutes;
+            }
 
-                if (timer.timeRemaining < 0) {
-                    timerHours.textContent = '00';
-                    timerMinutes.textContent = '00';
-                    timerSeconds.textContent = '00';
-                }
+            timerSeconds.textContent = timer.seconds;
+            if (timer.seconds < 10) {
+                timerSeconds.textContent = '0' + timer.seconds;
+            }
 
-            };
 
-            let upDateClockInterval = setInterval(upDateClock, 1000);
-            
-            upDateClock();
+            if (timer.timeRemaining <= 0) {
+                clearInterval(upDateClockInterval);
+            }
+
+            if (timer.timeRemaining < 0) {
+                timerHours.textContent = '00';
+                timerMinutes.textContent = '00';
+                timerSeconds.textContent = '00';
+            }
+
+        };
+
+        let upDateClockInterval = setInterval(upDateClock, 1000);
+
+        upDateClock();
 
     };
 
-    countTimer('14 august 2019');
+    countTimer('30 september 2019');
 
     const toggleMenu = () => {
 
@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', () => {
         body.addEventListener('click', (event) => {
 
             let target = event.target;
-                
+
             if (target.closest('.menu')) {
                 menu.classList.add('active-menu');
             } else if (target.classList.contains('close-btn')) {
@@ -164,7 +164,7 @@ window.addEventListener('DOMContentLoaded', () => {
         tabHeader.addEventListener('click', (event) => {
 
             let target = event.target;
-                target = target.closest('.service-header-tab');
+            target = target.closest('.service-header-tab');
 
             if (target) {
                 tab.forEach((item, i) => {
@@ -365,7 +365,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             totalValue.textContent = total;
 
-        };            
+        };
 
         calcBlock.addEventListener('change', (event) => {
 
@@ -380,5 +380,161 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     calc(100);
+
+    // send-ajax-form
+    const sendForm = () => {
+
+        const errorMessage = 'Что-то пошло не так...',
+            loadMessage = 'Загрузка...',
+            successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
+
+        const statusMessage = document.createElement('div');
+        statusMessage.style.cssText = 'font-size: 2rem; color: #fff;';
+
+        const form = document.getElementById('form1'),
+            form2 = document.getElementById('form2'),
+            form3 = document.getElementById('form3'),
+            form1Name = document.getElementById('form1-name'),
+            form2Name = document.getElementById('form2-name'),
+            form2Message = document.getElementById('form2-message'),
+            form3Name = document.getElementById('form3-name'),
+            form1Phone = document.getElementById('form1-phone'),
+            //form2Phone = document.getElementById('form2-phone'),
+            form3Phone = document.getElementById('form3-phone');
+
+        form1Name.addEventListener('input', (event) => {
+            let target = event.target;
+            target.value = target.value.replace(/[^а-яё\s]/ig, '');
+        });
+
+        form2Name.addEventListener('input', (event) => {
+            let target = event.target;
+            target.value = target.value.replace(/[^а-яё\s]/ig, '');
+        });
+
+        const form2Phone = document.getElementById('form2-phone').value;
+
+        const validPhone = () => {
+
+            const reg = /^\+?[78]([()-]*\d){10}$/;
+            const valid = reg.test(form2Phone);
+            if (valid) {
+                console.log('true');
+            }
+            else {
+                console.log('false');
+            }
+            return valid;
+
+        };
+
+
+        form2Message.addEventListener('input', (event) => {
+            let target = event.target;
+            target.value = target.value.replace(/[^а-яё\s]/ig, '');
+        });
+
+        form3Name.addEventListener('input', (event) => {
+            let target = event.target;
+            target.value = target.value.replace(/[^а-яё\s]/ig, '');
+        });
+
+        form.addEventListener('submit', (event) => {
+
+            event.preventDefault();
+            form.appendChild(statusMessage);
+            statusMessage.textContent = loadMessage;
+
+            const formData = new FormData(form);
+            let body = {};
+
+            formData.forEach((val, key) => {
+                body[key] = val;
+            });
+
+            postData(body, () => {
+                statusMessage.textContent = successMessage;
+            }, (error) => {
+                statusMessage.textContent = errorMessage;
+                console.error(error);
+            });
+
+        });
+
+        form2.addEventListener('submit', (event) => {
+
+            event.preventDefault();
+            form2.appendChild(statusMessage);
+            statusMessage.textContent = loadMessage;
+
+            const formData = new FormData(form2);
+            let body = {};
+
+            formData.forEach((val, key) => {
+                body[key] = val;
+            });
+
+            postData(body, () => {
+                statusMessage.textContent = successMessage;
+            }, (error) => {
+                statusMessage.textContent = errorMessage;
+                console.error(error);
+            });
+
+            validPhone();
+
+        });
+
+        form3.addEventListener('submit', (event) => {
+
+            event.preventDefault();
+            form3.appendChild(statusMessage);
+            statusMessage.textContent = loadMessage;
+
+            const formData = new FormData(form3);
+            let body = {};
+
+            formData.forEach((val, key) => {
+                body[key] = val;
+            });
+
+            postData(body, () => {
+                statusMessage.textContent = successMessage;
+            }, (error) => {
+                statusMessage.textContent = errorMessage;
+                console.error(error);
+            });
+
+        });
+
+        const postData = (body, outputData, errorData) => {
+
+            const request = new XMLHttpRequest();
+
+            request.addEventListener('readystatechange', () => {
+
+                if (request.readyState !== 4) {
+                    return;
+                }
+
+                if (request.status === 200) {
+                    outputData();
+                } else {
+                    errorData(request.status);
+                }
+
+            });
+
+
+
+            request.open('POST', './server.php');
+            request.setRequestHeader('Content-Type', 'application/json');
+            request.send(JSON.stringify(body));
+
+        };
+
+    };
+
+    sendForm();
 
 });

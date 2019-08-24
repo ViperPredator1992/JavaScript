@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+// window.addEventListener('DOMContentLoaded', () => {
 
     'use strict';
 
@@ -31,4 +31,4 @@ window.addEventListener('DOMContentLoaded', () => {
 
     };
 
-});
+// });
