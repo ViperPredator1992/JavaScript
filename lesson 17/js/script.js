@@ -427,9 +427,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 if (elem.target.name === 'user_name') {
                     elem.srcElement.value = elem.srcElement.value.replace(/[^а-яёА-ЯЁ\s]/gi, ``);
                 } else if (elem.target.name === 'user_phone') {
-                    elem.srcElement.value = elem.srcElement.value.replace(/^((\+[0-9]{1,3})+([0-9]){10})$/gm);
+                    elem.srcElement.value = elem.srcElement.value.replace(/[^+0-9]/gi, ``);
                 } else if (elem.target.name === 'user_message') {
-                    elem.srcElement.value = elem.srcElement.value.replace(/[^а-яёА-ЯЁ\s]/ig, ``);
+                    elem.srcElement.value = elem.srcElement.value.replace(/[^а-яёА-ЯЁ\s]/gi, ``);
                 } else {
                     return;
                 }
