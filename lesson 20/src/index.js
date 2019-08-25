@@ -1,7 +1,7 @@
 'use strict';
 
-import 'nodelist-foreach-polyfill';
 import '@babel/polyfill';
+import 'nodelist-foreach-polyfill';
 import elementClosest from 'element-closest';
 elementClosest(window);
 import 'es6-promise';
