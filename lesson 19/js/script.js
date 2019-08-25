@@ -18,7 +18,12 @@ window.addEventListener('DOMContentLoaded', () => {
                 minutes = Math.floor((timeRemaining / 60) % 60),
                 hours = Math.floor(timeRemaining / 60 / 60);
 
-            return { timeRemaining, hours, minutes, seconds };
+            return {
+                timeRemaining,
+                hours,
+                minutes,
+                seconds
+            };
 
         };
 
@@ -35,7 +40,6 @@ window.addEventListener('DOMContentLoaded', () => {
             if (timer.minutes < 10) {
                 timerMinutes.textContent = '0' + timer.minutes;
             }
-<<<<<<< HEAD
 
             timerSeconds.textContent = timer.seconds;
             if (timer.seconds < 10) {
@@ -43,15 +47,6 @@ window.addEventListener('DOMContentLoaded', () => {
             }
 
 
-=======
-
-            timerSeconds.textContent = timer.seconds;
-            if (timer.seconds < 10) {
-                timerSeconds.textContent = '0' + timer.seconds;
-            }
-
-
->>>>>>> 3b5160258ec86ca48e567ed32282c66b294c07cb
             if (timer.timeRemaining <= 0) {
                 clearInterval(upDateClockInterval);
             }
@@ -70,15 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    countTimer('30 august 2019');
-=======
     countTimer('30 september 2019');
->>>>>>> 7320db7e3e21d89c79bcf7eb0250aaf5cf1c3485
-=======
-    countTimer('30 september 2019');
->>>>>>> 3b5160258ec86ca48e567ed32282c66b294c07cb
 
     const toggleMenu = () => {
 
@@ -406,72 +393,8 @@ window.addEventListener('DOMContentLoaded', () => {
             loadMessage = 'Загрузка...',
             successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        const form = document.getElementById('form1'),
-            form2 = document.getElementById('form2'),
-            form3 = document.getElementById('form3');
-
-        const formName = document.querySelector('#form2-name');    
-        formName.innerHTML = formName.innerHTML.replace(/(^[A-Z]{1}[a-z]{1,14} [A-Z]{1}[a-z]{1,14}$)|(^[А-Я]{1}[а-я]{1,14} [А-Я]{1}[а-я]{1,14}$)/);
-        console.log("TCL: sendForm -> formName.innerHTML", formName)
-
-=======
->>>>>>> 3b5160258ec86ca48e567ed32282c66b294c07cb
         const statusMessage = document.createElement('div');
         statusMessage.style.cssText = 'font-size: 2rem; color: #fff;';
-=======
-        const statusMessage = document.createElement('div');
-        statusMessage.style.cssText = 'font-size: 2rem; color: #fff;';
-
-        const form = document.getElementById('form1'),
-            form2 = document.getElementById('form2'),
-            form3 = document.getElementById('form3'),
-            form1Name = document.getElementById('form1-name'),
-            form2Name = document.getElementById('form2-name'),
-            form2Message = document.getElementById('form2-message'),
-            form3Name = document.getElementById('form3-name'),
-            form1Phone = document.getElementById('form1-phone'),
-            //form2Phone = document.getElementById('form2-phone'),
-            form3Phone = document.getElementById('form3-phone');
-
-        form1Name.addEventListener('input', (event) => {
-            let target = event.target;
-            target.value = target.value.replace(/[^а-яё\s]/ig, '');
-        });
-
-        form2Name.addEventListener('input', (event) => {
-            let target = event.target;
-            target.value = target.value.replace(/[^а-яё\s]/ig, '');
-        });
-
-        const form2Phone = document.getElementById('form2-phone').value;
-
-        const validPhone = () => {
-
-            const reg = /^\+?[78]([()-]*\d){10}$/;
-            const valid = reg.test(form2Phone);
-            if (valid) {
-                console.log('true');
-            }
-            else {
-                console.log('false');
-            }
-            return valid;
-
-        };
-
-
-        form2Message.addEventListener('input', (event) => {
-            let target = event.target;
-            target.value = target.value.replace(/[^а-яё\s]/ig, '');
-        });
-
-        form3Name.addEventListener('input', (event) => {
-            let target = event.target;
-            target.value = target.value.replace(/[^а-яё\s]/ig, '');
-        });
->>>>>>> 7320db7e3e21d89c79bcf7eb0250aaf5cf1c3485
 
         const allForm = document.querySelectorAll('form'),
             allInput = document.querySelectorAll('input');
@@ -491,34 +414,22 @@ window.addEventListener('DOMContentLoaded', () => {
                     body[key] = val;
                 });
 
-                postData(body, () => {
-                    statusMessage.textContent = successMessage;
-                }, (error) => {
-                    statusMessage.textContent = errorMessage;
-                    console.error(error);
-                });
+                postData(body)
+                    .then((response) => {
+                        if (response.status !== 200) {
+                            throw new Error('status network is not 200');
+                        }
+                        statusMessage.textContent = successMessage;
+                    })
+                    .then(allInput.forEach((item) => item.value = ''))
+                    .catch((error) => {
+                        statusMessage.textContent = errorMessage;
+                        console.error(error);
+                    });
 
             });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-            validPhone();
-
->>>>>>> 7320db7e3e21d89c79bcf7eb0250aaf5cf1c3485
-        });
-
-        form3.addEventListener('submit', (event) => {
-
-            event.preventDefault();
-            form3.appendChild(statusMessage);
-            statusMessage.textContent = loadMessage;
-
-            const formData = new FormData(form3);
-            let body = {};
-=======
             elem.addEventListener('input', (elem) => {
->>>>>>> 3b5160258ec86ca48e567ed32282c66b294c07cb
 
                 if (elem.target.name === 'user_name') {
                     elem.srcElement.value = elem.srcElement.value.replace(/[^а-яёА-ЯЁ\s]/gi, ``);
@@ -534,33 +445,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
         });
 
-        const postData = (body, outputData, errorData) => {
+        const postData = (body) => {
 
-            const request = new XMLHttpRequest();
-
-            request.addEventListener('readystatechange', () => {
-
-                if (request.readyState !== 4) {
-                    return;
-                }
-
-                if (request.status === 200) {
-                    outputData();
-                    allInput.forEach((item) => item.value = '');
-                } else {
-                    errorData(request.status);
-                }
-
+            return fetch('./server.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
             });
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 7320db7e3e21d89c79bcf7eb0250aaf5cf1c3485
-            request.open('POST', './server.php');
-            request.setRequestHeader('Content-Type', 'application/json');
-            request.send(JSON.stringify(body));
 
         };
 
