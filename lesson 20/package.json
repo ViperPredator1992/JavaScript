@@ -1,7 +1,8 @@
 {
-  "name": "javascript",
+  "name": "3dGlo",
   "version": "1.0.0",
   "description": "JavaScript 8.0",
+  "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --open --mode=development",
     "build": "webpack --mode=production"
@@ -26,7 +27,6 @@
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
   },
-  "main": "index.js",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "element-closest": "^3.0.1",
