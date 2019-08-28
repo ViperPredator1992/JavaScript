@@ -553,11 +553,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
             });
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 7320db7e3e21d89c79bcf7eb0250aaf5cf1c3485
             request.open('POST', './server.php');
             request.setRequestHeader('Content-Type', 'application/json');
             request.send(JSON.stringify(body));
